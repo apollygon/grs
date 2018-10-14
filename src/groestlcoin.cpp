@@ -310,8 +310,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 *   vMerkleTree: 4a5e1e
 */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
-	const char* pszTimestamp = "Pressure must be put on Vladimir Putin over Crimea";
-	const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
+	const char* pszTimestamp = "soforex is reborn";
+	const CScript genesisOutputScript = CScript() << ParseHex("c76593ce5f99d8c9c612329184753d98025c2435d23cc8d5cc94c0e2e6d98b58661d1eb2ac9fd23fe88a105362493682c017c5f5f53da096b5b29d2d1668477663") << OP_CHECKSIG;
 	return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -387,7 +387,7 @@ public:
         nPruneAfterHeight = 10000000;
 
 
-		genesis = CreateGenesisBlock(1395342829, 220035, 0x1e0fffff, 112, 0);
+		genesis = CreateGenesisBlock(1538313081, 247346, 0x1e0fffff, 112, 0);
 
         /**
          * Build the genesis block. Note that the output of its generation
@@ -419,9 +419,9 @@ public:
 		vSeeds.push_back("jswallet.groestlcoin.org");
 		vSeeds.push_back("groestlsight.groestlcoin.org");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63); // guarantees the first character is S
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125); // guarantees the first character is s
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,190); // guarantees the first character is V
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
@@ -440,11 +440,7 @@ public:
 		checkpointData = (CCheckpointData) {
 #endif
 			{
-				{28888, uint256S("0x00000000000228ce19f55cf0c45e04c7aa5a6a873ed23902b3654c3c49884502")},
-				{58888, uint256S("0x0000000000dd85f4d5471febeb174a3f3f1598ab0af6616e9f266b56272274ef")},
-				{111111, uint256S("0x00000000013de206275ee83f93bee57622335e422acbf126a37020484c6e113c")},
-				{1000000, uint256S("0x000000000df8560f2612d5f28b52ed1cf81b0f87ac0c9c7242cbcf721ca6854a")},
-				{2000000, uint256S("0x00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66")},
+				{0		, uint256S("0x00000f4df9cde5b0a3dbcf1d333c6fcd9d780753111d3c2b8ef1677b2110a708")},
 			}
 		};
 
