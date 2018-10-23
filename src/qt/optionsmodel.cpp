@@ -77,8 +77,8 @@ void OptionsModel::Init(bool resetSettings)
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
-        settings.setValue("strThirdPartyTxUrls", "https://chainz.cryptoid.info/grs/tx.dws?%s");
-    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "https://chainz.cryptoid.info/grs/tx.dws?%s").toString();
+        settings.setValue("strThirdPartyTxUrls", "https://chainz.cryptoid.info/sfx/tx.dws?%s");
+    strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "https://chainz.cryptoid.info/sfx/tx.dws?%s").toString();
 
     if (!settings.contains("fCoinControlFeatures"))
         settings.setValue("fCoinControlFeatures", false);

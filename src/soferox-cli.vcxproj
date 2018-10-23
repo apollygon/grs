@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1630C0CD-799D-4FB6-A54B-ED164DEC0FB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>grs</RootNamespace>
+    <RootNamespace>sfx</RootNamespace>
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
@@ -93,7 +93,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>sfx-config.h</ForcedIncludeFiles>
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
@@ -117,7 +117,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>sfx-config.h</ForcedIncludeFiles>
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
@@ -138,7 +138,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\inc;univalue\include;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>sfx-config.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -174,7 +174,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\inc;univalue\include;..\foreign\libevent\win32-code;..\foreign\libevent</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>grs-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>sfx-config.h</ForcedIncludeFiles>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">

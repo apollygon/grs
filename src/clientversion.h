@@ -7,7 +7,7 @@
 
 #if defined(HAVE_CONFIG_H)
 #	if defined(_MSC_VER)
-#		include "grs-config.h"
+#		include "sfx-config.h"
 #	else
 #		include <config/bitcoin-config.h>
 #	endif

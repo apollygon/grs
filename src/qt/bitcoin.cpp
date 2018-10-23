@@ -89,8 +89,8 @@ static std::vector<TranslationTable> g_translationTable = {
 	}, { L"Bitcion"         , L"Soferox"
 	}, { L"satoshi"		, L"gro"
 	}, { L"sat "		, L"gro "
-	}, { L"BITCOIN"		, L"GROESTLCOIN"
-        }, { L"BITCOINS"	, L"GROESTLCOINS"		
+	}, { L"BITCOIN"		, L"SOFEROX"
+        }, { L"BITCOINS"	, L"SOFEROXS"		
 	}, { L"БИТКОИНЫ"	, L"ГРЁСТЛКОИНЫ"		// ru
 	}, { L"биткоины"	, L"грёстлкоины"		// ru
 	}, { L"біткойни"	, L"гростлкойни"		// ua

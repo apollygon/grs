@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=soferoxd
-# you can override the lockfile via GROESTLCOIND_LOCKFILE in /etc/sysconfig/soferoxd
-lockfile=${GROESTLCOIND_LOCKFILE-/var/lock/subsys/soferoxd}
+# you can override the lockfile via SOFEROXD_LOCKFILE in /etc/sysconfig/soferoxd
+lockfile=${SOFEROXD_LOCKFILE-/var/lock/subsys/soferoxd}
 
-# soferoxd defaults to /usr/bin/soferoxd, override with GROESTLCOIND_BIN
-soferoxd=${GROESTLCOIND_BIN-/usr/bin/soferoxd}
+# soferoxd defaults to /usr/bin/soferoxd, override with SOFEROXD_BIN
+soferoxd=${SOFEROXD_BIN-/usr/bin/soferoxd}
 
-# soferoxd opts default to -disablewallet, override with GROESTLCOIND_OPTS
-soferoxd_opts=${GROESTLCOIND_OPTS--disablewallet}
+# soferoxd opts default to -disablewallet, override with SOFEROXD_OPTS
+soferoxd_opts=${SOFEROXD_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "

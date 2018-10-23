@@ -1,4 +1,4 @@
-#include "grs-config.h"
+#include "sfx-config.h"
 
 #include <assert.h>
 #include <stdint.h>

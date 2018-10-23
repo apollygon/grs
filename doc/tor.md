@@ -1,4 +1,4 @@
-TOR SUPPORT IN GROESTLCOIN
+TOR SUPPORT IN SOFEROX
 ======================
 
 It is possible to run Soferox as a Tor hidden service, and connect to such services.

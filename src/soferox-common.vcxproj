@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1630C0CD-099D-4FB6-A57B-1D164DEC0FB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>grs</RootNamespace>
+    <RootNamespace>sfx</RootNamespace>
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
@@ -470,7 +470,7 @@
     <ClInclude Include="eccryptoverify.h" />
     <ClInclude Include="ecwrapper.h" />
     <ClInclude Include="soferox.h" />
-    <ClInclude Include="grs-config.h" />
+    <ClInclude Include="sfx-config.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="key.h" />

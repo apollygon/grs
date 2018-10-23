@@ -3,40 +3,40 @@
 # backward compatibility for existing gentoo layout 
 #
 if [ -d "/var/lib/soferox/.soferox" ]; then
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/soferox/.soferox"
+	SOFEROXD_DEFAULT_DATADIR="/var/lib/soferox/.soferox"
 else
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/soferoxd"
+	SOFEROXD_DEFAULT_DATADIR="/var/lib/soferoxd"
 fi
 
-GROESTLCOIND_CONFIGFILE=${GROESTLCOIND_CONFIGFILE:-/etc/soferox/soferox.conf}
-GROESTLCOIND_PIDDIR=${GROESTLCOIND_PIDDIR:-/var/run/soferoxd}
-GROESTLCOIND_PIDFILE=${GROESTLCOIND_PIDFILE:-${GROESTLCOIND_PIDDIR}/soferoxd.pid}
-GROESTLCOIND_DATADIR=${GROESTLCOIND_DATADIR:-${GROESTLCOIND_DEFAULT_DATADIR}}
-GROESTLCOIND_USER=${GROESTLCOIND_USER:-${GROESTLCOIN_USER:-soferox}}
-GROESTLCOIND_GROUP=${GROESTLCOIND_GROUP:-soferox}
-GROESTLCOIND_BIN=${GROESTLCOIND_BIN:-/usr/bin/soferoxd}
-GROESTLCOIND_NICE=${GROESTLCOIND_NICE:-${NICELEVEL:-0}}
-GROESTLCOIND_OPTS="${GROESTLCOIND_OPTS:-${GROESTLCOIN_OPTS}}"
+SOFEROXD_CONFIGFILE=${SOFEROXD_CONFIGFILE:-/etc/soferox/soferox.conf}
+SOFEROXD_PIDDIR=${SOFEROXD_PIDDIR:-/var/run/soferoxd}
+SOFEROXD_PIDFILE=${SOFEROXD_PIDFILE:-${SOFEROXD_PIDDIR}/soferoxd.pid}
+SOFEROXD_DATADIR=${SOFEROXD_DATADIR:-${SOFEROXD_DEFAULT_DATADIR}}
+SOFEROXD_USER=${SOFEROXD_USER:-${SOFEROX_USER:-soferox}}
+SOFEROXD_GROUP=${SOFEROXD_GROUP:-soferox}
+SOFEROXD_BIN=${SOFEROXD_BIN:-/usr/bin/soferoxd}
+SOFEROXD_NICE=${SOFEROXD_NICE:-${NICELEVEL:-0}}
+SOFEROXD_OPTS="${SOFEROXD_OPTS:-${SOFEROX_OPTS}}"
 
 name="SoferoxCoin Core Daemon"
 description="SoferoxCoin cryptocurrency P2P network daemon"
 
 command="/usr/bin/soferoxd"
-command_args="-pid=\"${GROESTLCOIND_PIDFILE}\" \
-		-conf=\"${GROESTLCOIND_CONFIGFILE}\" \
-		-datadir=\"${GROESTLCOIND_DATADIR}\" \
+command_args="-pid=\"${SOFEROXD_PIDFILE}\" \
+		-conf=\"${SOFEROXD_CONFIGFILE}\" \
+		-datadir=\"${SOFEROXD_DATADIR}\" \
 		-daemon \
-		${GROESTLCOIND_OPTS}"
+		${SOFEROXD_OPTS}"
 
-required_files="${GROESTLCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${GROESTLCOIND_USER} \
-			-N ${GROESTLCOIND_NICE} -w 2000"
-pidfile="${GROESTLCOIND_PIDFILE}"
+required_files="${SOFEROXD_CONFIGFILE}"
+start_stop_daemon_args="-u ${SOFEROXD_USER} \
+			-N ${SOFEROXD_NICE} -w 2000"
+pidfile="${SOFEROXD_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${GROESTLCOIND_SIGTERM_TIMEOUT}"
+retry="${SOFEROXD_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,29 +50,29 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP}" \
-	"${GROESTLCOIND_DATADIR}"
+	--owner "${SOFEROXD_USER}:${SOFEROXD_GROUP}" \
+	"${SOFEROXD_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP}" \
-	"${GROESTLCOIND_PIDDIR}"
+	--owner "${SOFEROXD_USER}:${SOFEROXD_GROUP}" \
+	"${SOFEROXD_PIDDIR}"
 
 	checkpath -f \
-	-o ${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP} \
+	-o ${SOFEROXD_USER}:${SOFEROXD_GROUP} \
 	-m 0660 \
-	${GROESTLCOIND_CONFIGFILE}
+	${SOFEROXD_CONFIGFILE}
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${GROESTLCOIND_CONFIGFILE}" ; then
+	if ! grep -qs '^rpcpassword=' "${SOFEROXD_CONFIGFILE}" ; then
 		eerror ""
 		eerror "ERROR: You must set a secure rpcpassword to run soferoxd."
-		eerror "The setting must appear in ${GROESTLCOIND_CONFIGFILE}"
+		eerror "The setting must appear in ${SOFEROXD_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."

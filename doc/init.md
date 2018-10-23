@@ -104,7 +104,7 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 Copy soferoxd.init to /etc/init.d/soferoxd. Test by running `service soferoxd start`.
 
 Using this script, you can adjust the path and flags to the soferoxd program by
-setting the GROESTLCOIND and FLAGS environment variables in the file
+setting the SOFEROXD and FLAGS environment variables in the file
 /etc/sysconfig/soferoxd. You can also use the DAEMONOPTS environment variable here.
 
 ### Mac OS X

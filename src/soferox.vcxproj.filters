@@ -27,10 +27,10 @@
     <Filter Include="Header Files\support">
       <UniqueIdentifier>{ef9aad40-5056-438d-b082-c72384071152}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\grs">
+    <Filter Include="Source Files\sfx">
       <UniqueIdentifier>{f81a6b20-b1ed-468d-b69b-5819c36eb43c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\grs">
+    <Filter Include="Header Files\sfx">
       <UniqueIdentifier>{9294d5f4-1af0-45e2-9b65-7b454de8d600}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\crypto">
@@ -87,7 +87,7 @@
     <Filter Include="Source Files\qrencode">
       <UniqueIdentifier>{d6982f6d-6a52-4b09-9518-f8c2581c08d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\grs\inc">
+    <Filter Include="Header Files\sfx\inc">
       <UniqueIdentifier>{bb2e4e65-7fab-4cce-b17b-933c3d1a38b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -138,7 +138,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="soferox.cpp">
-      <Filter>Source Files\grs</Filter>
+      <Filter>Source Files\sfx</Filter>
     </ClCompile>
     <ClCompile Include="protocol.cpp">
       <Filter>Source Files</Filter>
@@ -291,7 +291,7 @@
       <Filter>Source Files\secp256k1</Filter>
     </ClCompile>
     <ClCompile Include="soferox-hash.cpp">
-      <Filter>Source Files\grs</Filter>
+      <Filter>Source Files\sfx</Filter>
     </ClCompile>
     <ClCompile Include="univalue\lib\univalue.cpp">
       <Filter>Source Files\univalue</Filter>
@@ -369,10 +369,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="soferox-dll.cpp">
-      <Filter>Source Files\grs</Filter>
+      <Filter>Source Files\sfx</Filter>
     </ClCompile>
     <ClCompile Include="win-libs.cpp">
-      <Filter>Source Files\grs</Filter>
+      <Filter>Source Files\sfx</Filter>
     </ClCompile>
     <ClCompile Include="qt\addressbookpage.cpp">
       <Filter>Source Files\qt</Filter>
@@ -687,16 +687,16 @@
       <Filter>Source Files\qt</Filter>
     </ClCompile>
     <ClCompile Include="qt\bitcoin.cpp">
-      <Filter>Header Files\grs\inc</Filter>
+      <Filter>Header Files\sfx\inc</Filter>
     </ClCompile>
     <ClCompile Include="soferox-cli.cpp">
-      <Filter>Header Files\grs\inc</Filter>
+      <Filter>Header Files\sfx\inc</Filter>
     </ClCompile>
     <ClCompile Include="soferox-tx.cpp">
-      <Filter>Header Files\grs\inc</Filter>
+      <Filter>Header Files\sfx\inc</Filter>
     </ClCompile>
     <ClCompile Include="soferoxd.cpp">
-      <Filter>Header Files\grs\inc</Filter>
+      <Filter>Header Files\sfx\inc</Filter>
     </ClCompile>
     <ClCompile Include="support\lockedpool.cpp">
       <Filter>Source Files\support</Filter>
@@ -761,7 +761,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="soferox.h">
-      <Filter>Header Files\grs</Filter>
+      <Filter>Header Files\sfx</Filter>
     </ClInclude>
     <ClInclude Include="protocol.h">
       <Filter>Header Files</Filter>
@@ -787,8 +787,8 @@
     <ClInclude Include="script\interpreter.h">
       <Filter>Header Files\script</Filter>
     </ClInclude>
-    <ClInclude Include="grs-config.h">
-      <Filter>Header Files\grs</Filter>
+    <ClInclude Include="sfx-config.h">
+      <Filter>Header Files\sfx</Filter>
     </ClInclude>
     <ClInclude Include="scheduler.h">
       <Filter>Header Files</Filter>
@@ -920,7 +920,7 @@
       <Filter>Header Files\wallet</Filter>
     </ClInclude>
     <ClInclude Include="bignum.h">
-      <Filter>Header Files\grs</Filter>
+      <Filter>Header Files\sfx</Filter>
     </ClInclude>
     <ClInclude Include="cuckoocache.h">
       <Filter>Header Files</Filter>

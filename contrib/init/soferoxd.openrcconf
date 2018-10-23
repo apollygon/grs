@@ -1,33 +1,33 @@
 # /etc/conf.d/soferoxd: config file for /etc/init.d/soferoxd
 
 # Config file location
-#GROESTLCOIND_CONFIGFILE="/etc/soferox/soferox.conf"
+#SOFEROXD_CONFIGFILE="/etc/soferox/soferox.conf"
 
-# What directory to write pidfile to?  (created and owned by $GROESTLCOIND_USER)
-#GROESTLCOIND_PIDDIR="/var/run/soferoxd"
+# What directory to write pidfile to?  (created and owned by $SOFEROXD_USER)
+#SOFEROXD_PIDDIR="/var/run/soferoxd"
 
 # What filename to give the pidfile
-#GROESTLCOIND_PIDFILE="${GROESTLCOIND_PIDDIR}/soferoxd.pid"
+#SOFEROXD_PIDFILE="${SOFEROXD_PIDDIR}/soferoxd.pid"
 
 # Where to write soferoxd data (be mindful that the blockchain is large)
-#GROESTLCOIND_DATADIR="/var/lib/soferoxd"
+#SOFEROXD_DATADIR="/var/lib/soferoxd"
 
 # User and group to own soferoxd process
-#GROESTLCOIND_USER="soferox"
-#GROESTLCOIND_GROUP="soferox"
+#SOFEROXD_USER="soferox"
+#SOFEROXD_GROUP="soferox"
 
 # Path to soferoxd executable
-#GROESTLCOIND_BIN="/usr/bin/soferoxd"
+#SOFEROXD_BIN="/usr/bin/soferoxd"
 
 # Nice value to run soferoxd under
-#GROESTLCOIND_NICE=0
+#SOFEROXD_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)
-#GROESTLCOIND_OPTS="-disablewallet"
+#SOFEROXD_OPTS="-disablewallet"
 
 # The timeout in seconds OpenRC will wait for soferoxd to terminate
 # after a SIGTERM has been raised.
 # Note that this will be mapped as argument to start-stop-daemon's
 # '--retry' option, which means you can specify a retry schedule
 # here. For more information see man 8 start-stop-daemon.
-GROESTLCOIND_SIGTERM_TIMEOUT=60
+SOFEROXD_SIGTERM_TIMEOUT=60

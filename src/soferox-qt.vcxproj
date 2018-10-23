@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2620C0CD-299D-4FB6-A59B-ED164DEC0FB1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>grs</RootNamespace>
+    <RootNamespace>sfx</RootNamespace>
   </PropertyGroup>
   <Import Project="cfg\vs\vs-ver.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
