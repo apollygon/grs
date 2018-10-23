@@ -544,24 +544,24 @@ public:
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
 
-		 for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
-		 	genesis = CreateGenesisBlock(1530728750, nonce, 0x1e00ffff, 3, 0);
-		 	consensus.hashGenesisBlock = genesis.GetHash();
-		 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
-		 		printf("Wonderfull__testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());	
-		 		printf("Wonderfull__testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());	
-		 		printf("Wonderfull__testnet_genesis.nonce = %d\n", genesis.nNonce);	
-		 		break;
-		 	}
+		// for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
+		// 	genesis = CreateGenesisBlock(1530728750, nonce, 0x1e00ffff, 3, 0);
+		// 	consensus.hashGenesisBlock = genesis.GetHash();
+		// 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
+		// 		printf("Wonderfull__testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());	
+		// 		printf("Wonderfull__testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());	
+		// 		printf("Wonderfull__testnet_genesis.nonce = %d\n", genesis.nNonce);	
+		// 		break;
+		// 	}
 	
-		 }
+		// }
 
-		genesis = CreateGenesisBlock(1537197790, 2573276, 0x1e00ffff, 3, 0);
+		genesis = CreateGenesisBlock(1530728779, 929920, 0x1e0fffff, 112, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
 		// printf("testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         // printf("testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		// printf("testnet_nNounce = %d\n", genesis.nNonce);
-        assert(consensus.hashGenesisBlock == uint256S("0x000000ae86d44fa10749fab5c0de4dafc6c96c008d6cf20c11c7190e221cf057"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
