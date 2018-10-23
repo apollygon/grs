@@ -36,24 +36,24 @@ extern "C" {
 
 #include "sph_soferox.h"
 
-//#if SPH_SMALL_FOOTPRINT && !defined SPH_SMALL_FOOTPRINT_GROESTL
-#define SPH_SMALL_FOOTPRINT_GROESTL   0
+//#if SPH_SMALL_FOOTPRINT && !defined SPH_SMALL_FOOTPRINT_SOFEROX
+#define SPH_SMALL_FOOTPRINT_SOFEROX   0
 //#endif
 
 /*
  * Apparently, the 32-bit-only version is not faster than the 64-bit
  * version unless using the "small footprint" code on a 32-bit machine.
  */
-#if !defined SPH_GROESTL_64
-#if SPH_SMALL_FOOTPRINT_GROESTL && !SPH_64_TRUE
-#define SPH_GROESTL_64   0
+#if !defined SPH_SOFEROX_64
+#if SPH_SMALL_FOOTPRINT_SOFEROX && !SPH_64_TRUE
+#define SPH_SOFEROX_64   0
 #else
-#define SPH_GROESTL_64   1
+#define SPH_SOFEROX_64   1
 #endif
 #endif
 
 #if !SPH_64
-#undef SPH_GROESTL_64
+#undef SPH_SOFEROX_64
 #endif
 
 #ifdef _MSC_VER
@@ -67,9 +67,9 @@ extern "C" {
  */
 
 #undef USE_LE
-#if SPH_GROESTL_LITTLE_ENDIAN
+#if SPH_SOFEROX_LITTLE_ENDIAN
 #define USE_LE   1
-#elif SPH_GROESTL_BIG_ENDIAN
+#elif SPH_SOFEROX_BIG_ENDIAN
 #define USE_LE   0
 #elif SPH_LITTLE_ENDIAN
 #define USE_LE   1
@@ -157,7 +157,7 @@ extern "C" {
 
 #endif
 
-#if SPH_GROESTL_64
+#if SPH_SOFEROX_64
 
 static const sph_u64 T0[] = {
 	C64e(0xc632f4a5f497a5c6), C64e(0xf86f978497eb84f8),
@@ -290,7 +290,7 @@ static const sph_u64 T0[] = {
 	C64e(0x6d0c61d661dad66d), C64e(0x2c624e3a4e583a2c)
 };
 
-#if !SPH_SMALL_FOOTPRINT_GROESTL
+#if !SPH_SMALL_FOOTPRINT_SOFEROX
 
 static const sph_u64 T1[] = {
 	C64e(0xc6c632f4a5f497a5), C64e(0xf8f86f978497eb84),
@@ -818,7 +818,7 @@ static const sph_u64 T4[] = {
 	C64e(0x61dad66d6d0c61d6), C64e(0x4e583a2c2c624e3a)
 };
 
-#if !SPH_SMALL_FOOTPRINT_GROESTL
+#if !SPH_SMALL_FOOTPRINT_SOFEROX
 
 static const sph_u64 T5[] = {
 	C64e(0xa5f497a5c6c632f4), C64e(0x8497eb84f8f86f97),
@@ -1226,7 +1226,7 @@ static const sph_u64 T7[] = {
 		memcpy((sc)->state.wide, H, sizeof H); \
 	} while (0)
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define RSTT(d, a, b0, b1, b2, b3, b4, b5, b6, b7)   do { \
 		t[d] = T0[B64_0(a[b0])] \
@@ -1310,7 +1310,7 @@ static const sph_u64 T7[] = {
 		a[7] = t[7]; \
 	} while (0)
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define PERM_SMALL_P(a)   do { \
 		int r; \
@@ -1381,7 +1381,7 @@ static const sph_u64 T7[] = {
 		memcpy((sc)->state.wide, H, sizeof H); \
 	} while (0)
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define RBTT(d, a, b0, b1, b2, b3, b4, b5, b6, b7)   do { \
 		t[d] = T0[B64_0(a[b0])] \
@@ -1409,7 +1409,7 @@ static const sph_u64 T7[] = {
 
 #endif
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define ROUND_BIG_P(a, r)   do { \
 		sph_u64 t[16]; \
@@ -1608,7 +1608,7 @@ static const sph_u64 T7[] = {
 	} while (0)
 
 /* obsolete
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define COMPRESS_BIG   do { \
 		sph_u64 g[16], m[16], *ya; \
@@ -2290,7 +2290,7 @@ static const sph_u32 T3dn[] = {
 		memcpy(a, t, sizeof t); \
 	} while (0)
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define PERM_SMALL_P(a)   do { \
 		int r; \
@@ -2357,7 +2357,7 @@ static const sph_u32 T3dn[] = {
 		memcpy((sc)->state.narrow, H, sizeof H); \
 	} while (0)
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define RBTT(d0, d1, a, b0, b1, b2, b3, b4, b5, b6, b7)   do { \
 		sph_u32 fu2 = T0up[B32_2(a[b2])]; \
@@ -2409,7 +2409,7 @@ static const sph_u32 T3dn[] = {
 
 #endif
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define ROUND_BIG_P(a, r)   do { \
 		sph_u32 t[32]; \
@@ -2673,7 +2673,7 @@ static const sph_u32 T3dn[] = {
 
 #endif
 
-#if SPH_SMALL_FOOTPRINT_GROESTL
+#if SPH_SMALL_FOOTPRINT_SOFEROX
 
 #define PERM_BIG_P(a)   do { \
 		int r; \
@@ -2737,7 +2737,7 @@ soferox_small_init(sph_soferox_small_context *sc, unsigned out_size)
 	size_t u;
 
 	sc->ptr = 0;
-#if SPH_GROESTL_64
+#if SPH_SOFEROX_64
 	for (u = 0; u < 7; u ++)
 		sc->state.wide[u] = 0;
 #if USE_LE
@@ -2854,7 +2854,7 @@ soferox_small_close(sph_soferox_small_context *sc,
 	soferox_small_core(sc, pad, pad_len);
 	READ_STATE_SMALL(sc);
 	FINAL_SMALL;
-#if SPH_GROESTL_64
+#if SPH_SOFEROX_64
 	for (u = 0; u < 4; u ++)
 		enc64e(pad + (u << 3), H[u + 4]);
 #else
@@ -2871,7 +2871,7 @@ soferox_big_init(sph_soferox_big_context *sc, unsigned out_size)
 	size_t u;
 
 	sc->ptr = 0;
-#if SPH_GROESTL_64
+#if SPH_SOFEROX_64
 	for (u = 0; u < 15; u ++)
 		sc->state.wide[u] = 0;
 #if USE_LE
@@ -2988,7 +2988,7 @@ soferox_big_close(sph_soferox_big_context *sc,
 	soferox_big_core(sc, pad, pad_len);
 	READ_STATE_BIG(sc);
 	FINAL_BIG;
-#if SPH_GROESTL_64
+#if SPH_SOFEROX_64
 	for (u = 0; u < 8; u ++)
 		enc64e(pad + (u << 3), H[u + 8]);
 #else

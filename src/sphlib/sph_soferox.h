@@ -32,8 +32,8 @@
  * @author   Thomas Pornin <thomas.pornin@cryptolog.com>
  */
 
-#ifndef SPH_GROESTL_H__
-#define SPH_GROESTL_H__
+#ifndef SPH_SOFEROX_H__
+#define SPH_SOFEROX_H__
 
 #include <stddef.h>
 #include "sph_types.h"
