@@ -384,7 +384,7 @@ public:
         * Don't set a value bigger than 0 if blockchain doesn't have any blocks yet.
         * Set your current ChainWork if you want nodes to wait until the whole blockchain is downloaded
         */
-        consensus.nMinimumChainWork = uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f");
+        consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f"); //0 block
