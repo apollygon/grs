@@ -1,5 +1,5 @@
 /*
- * Groestl implementation.
+ * Soferox implementation.
  *
  * ==========================(LICENSE BEGIN)============================
  *
@@ -34,7 +34,7 @@
 
 extern "C" {
 
-#include "sph_groestl.h"
+#include "sph_soferox.h"
 
 //#if SPH_SMALL_FOOTPRINT && !defined SPH_SMALL_FOOTPRINT_GROESTL
 #define SPH_SMALL_FOOTPRINT_GROESTL   0
@@ -484,7 +484,7 @@ static const sph_u64 T2[] = {
 	C64e(0xc08080db5bc05b1b), C64e(0x8a050580858a850a),
 	C64e(0xad3f3fd3ecadec7e), C64e(0xbc2121fedfbcdf42),
 	C64e(0x487070a8d848d8e0), C64e(0x04f1f1fd0c040cf9),
-	C64e(0xdf6363197adf7ac6), C64e(0xc177772f58c158ee),
+	C64e(0xdf6363197adf7ac6), C64e(0xc166442f58c158ee),
 	C64e(0x75afaf309f759f45), C64e(0x634242e7a563a584),
 	C64e(0x3020207050305040), C64e(0x1ae5e5cb2e1a2ed1),
 	C64e(0x0efdfdef120e12e1), C64e(0x6dbfbf08b76db765),
@@ -615,7 +615,7 @@ static const sph_u64 T3[] = {
 	C64e(0x1bc08080db5bc05b), C64e(0x0a8a050580858a85),
 	C64e(0x7ead3f3fd3ecadec), C64e(0x42bc2121fedfbcdf),
 	C64e(0xe0487070a8d848d8), C64e(0xf904f1f1fd0c040c),
-	C64e(0xc6df6363197adf7a), C64e(0xeec177772f58c158),
+	C64e(0xc6df6363197adf7a), C64e(0xeec166442f58c158),
 	C64e(0x4575afaf309f759f), C64e(0x84634242e7a563a5),
 	C64e(0x4030202070503050), C64e(0xd11ae5e5cb2e1a2e),
 	C64e(0xe10efdfdef120e12), C64e(0x656dbfbf08b76db7),
@@ -748,7 +748,7 @@ static const sph_u64 T4[] = {
 	C64e(0x5b1bc08080db5bc0), C64e(0x850a8a050580858a),
 	C64e(0xec7ead3f3fd3ecad), C64e(0xdf42bc2121fedfbc),
 	C64e(0xd8e0487070a8d848), C64e(0x0cf904f1f1fd0c04),
-	C64e(0x7ac6df6363197adf), C64e(0x58eec177772f58c1),
+	C64e(0x7ac6df6363197adf), C64e(0x58eec166442f58c1),
 	C64e(0x9f4575afaf309f75), C64e(0xa584634242e7a563),
 	C64e(0x5040302020705030), C64e(0x2ed11ae5e5cb2e1a),
 	C64e(0x12e10efdfdef120e), C64e(0xb7656dbfbf08b76d),
@@ -881,7 +881,7 @@ static const sph_u64 T5[] = {
 	C64e(0xc05b1bc08080db5b), C64e(0x8a850a8a05058085),
 	C64e(0xadec7ead3f3fd3ec), C64e(0xbcdf42bc2121fedf),
 	C64e(0x48d8e0487070a8d8), C64e(0x040cf904f1f1fd0c),
-	C64e(0xdf7ac6df6363197a), C64e(0xc158eec177772f58),
+	C64e(0xdf7ac6df6363197a), C64e(0xc158eec166442f58),
 	C64e(0x759f4575afaf309f), C64e(0x63a584634242e7a5),
 	C64e(0x3050403020207050), C64e(0x1a2ed11ae5e5cb2e),
 	C64e(0x0e12e10efdfdef12), C64e(0x6db7656dbfbf08b7),
@@ -1012,7 +1012,7 @@ static const sph_u64 T6[] = {
 	C64e(0x5bc05b1bc08080db), C64e(0x858a850a8a050580),
 	C64e(0xecadec7ead3f3fd3), C64e(0xdfbcdf42bc2121fe),
 	C64e(0xd848d8e0487070a8), C64e(0x0c040cf904f1f1fd),
-	C64e(0x7adf7ac6df636319), C64e(0x58c158eec177772f),
+	C64e(0x7adf7ac6df636319), C64e(0x58c158eec166442f),
 	C64e(0x9f759f4575afaf30), C64e(0xa563a584634242e7),
 	C64e(0x5030504030202070), C64e(0x2e1a2ed11ae5e5cb),
 	C64e(0x120e12e10efdfdef), C64e(0xb76db7656dbfbf08),
@@ -1143,7 +1143,7 @@ static const sph_u64 T7[] = {
 	C64e(0xdb5bc05b1bc08080), C64e(0x80858a850a8a0505),
 	C64e(0xd3ecadec7ead3f3f), C64e(0xfedfbcdf42bc2121),
 	C64e(0xa8d848d8e0487070), C64e(0xfd0c040cf904f1f1),
-	C64e(0x197adf7ac6df6363), C64e(0x2f58c158eec17777),
+	C64e(0x197adf7ac6df6363), C64e(0x2f58c158eec16644),
 	C64e(0x309f759f4575afaf), C64e(0xe7a563a584634242),
 	C64e(0x7050305040302020), C64e(0xcb2e1a2ed11ae5e5),
 	C64e(0xef120e12e10efdfd), C64e(0x08b76db7656dbfbf),
@@ -1962,7 +1962,7 @@ static const sph_u32 T2up[] = {
 	C32e(0xf0a0a0ab), C32e(0x447878b4), C32e(0xba2525f0), C32e(0xe34b4b75),
 	C32e(0xf3a2a2ac), C32e(0xfe5d5d44), C32e(0xc08080db), C32e(0x8a050580),
 	C32e(0xad3f3fd3), C32e(0xbc2121fe), C32e(0x487070a8), C32e(0x04f1f1fd),
-	C32e(0xdf636319), C32e(0xc177772f), C32e(0x75afaf30), C32e(0x634242e7),
+	C32e(0xdf636319), C32e(0xc166442f), C32e(0x75afaf30), C32e(0x634242e7),
 	C32e(0x30202070), C32e(0x1ae5e5cb), C32e(0x0efdfdef), C32e(0x6dbfbf08),
 	C32e(0x4c818155), C32e(0x14181824), C32e(0x35262679), C32e(0x2fc3c3b2),
 	C32e(0xe1bebe86), C32e(0xa23535c8), C32e(0xcc8888c7), C32e(0x392e2e65),
@@ -2096,7 +2096,7 @@ static const sph_u32 T3up[] = {
 	C32e(0x5bf0a0a0), C32e(0xf0447878), C32e(0x4aba2525), C32e(0x96e34b4b),
 	C32e(0x5ff3a2a2), C32e(0xbafe5d5d), C32e(0x1bc08080), C32e(0x0a8a0505),
 	C32e(0x7ead3f3f), C32e(0x42bc2121), C32e(0xe0487070), C32e(0xf904f1f1),
-	C32e(0xc6df6363), C32e(0xeec17777), C32e(0x4575afaf), C32e(0x84634242),
+	C32e(0xc6df6363), C32e(0xeec16644), C32e(0x4575afaf), C32e(0x84634242),
 	C32e(0x40302020), C32e(0xd11ae5e5), C32e(0xe10efdfd), C32e(0x656dbfbf),
 	C32e(0x194c8181), C32e(0x30141818), C32e(0x4c352626), C32e(0x9d2fc3c3),
 	C32e(0x67e1bebe), C32e(0x6aa23535), C32e(0x0bcc8888), C32e(0x5c392e2e),
@@ -2732,7 +2732,7 @@ static const sph_u32 T3dn[] = {
 #endif
 
 static void
-groestl_small_init(sph_groestl_small_context *sc, unsigned out_size)
+soferox_small_init(sph_soferox_small_context *sc, unsigned out_size)
 {
 	size_t u;
 
@@ -2765,7 +2765,7 @@ groestl_small_init(sph_groestl_small_context *sc, unsigned out_size)
 }
 
 static void
-groestl_small_core(sph_groestl_small_context *sc, const void *data, size_t len)
+soferox_small_core(sph_soferox_small_context *sc, const void *data, size_t len)
 {
 	unsigned char *buf;
 	size_t ptr;
@@ -2807,7 +2807,7 @@ groestl_small_core(sph_groestl_small_context *sc, const void *data, size_t len)
 }
 
 static void
-groestl_small_close(sph_groestl_small_context *sc,
+soferox_small_close(sph_soferox_small_context *sc,
 	unsigned ub, unsigned n, void *dst, size_t out_len)
 {
 	unsigned char pad[72];
@@ -2851,7 +2851,7 @@ groestl_small_close(sph_groestl_small_context *sc,
 	sph_enc64be(pad + pad_len - 8, count_high);
 	sph_enc64be(pad + pad_len - 4, count_low);
 #endif
-	groestl_small_core(sc, pad, pad_len);
+	soferox_small_core(sc, pad, pad_len);
 	READ_STATE_SMALL(sc);
 	FINAL_SMALL;
 #if SPH_GROESTL_64
@@ -2862,11 +2862,11 @@ groestl_small_close(sph_groestl_small_context *sc,
 		enc32e(pad + (u << 2), H[u + 8]);
 #endif
 	memcpy(dst, pad + 32 - out_len, out_len);
-	groestl_small_init(sc, (unsigned)out_len << 3);
+	soferox_small_init(sc, (unsigned)out_len << 3);
 }
 
 static void
-groestl_big_init(sph_groestl_big_context *sc, unsigned out_size)
+soferox_big_init(sph_soferox_big_context *sc, unsigned out_size)
 {
 	size_t u;
 
@@ -2899,7 +2899,7 @@ groestl_big_init(sph_groestl_big_context *sc, unsigned out_size)
 }
 
 static void
-groestl_big_core(sph_groestl_big_context *sc, const void *data, size_t len)
+soferox_big_core(sph_soferox_big_context *sc, const void *data, size_t len)
 {
 	unsigned char *buf;
 	size_t ptr;
@@ -2941,7 +2941,7 @@ groestl_big_core(sph_groestl_big_context *sc, const void *data, size_t len)
 }
 
 static void
-groestl_big_close(sph_groestl_big_context *sc,
+soferox_big_close(sph_soferox_big_context *sc,
 	unsigned ub, unsigned n, void *dst, size_t out_len)
 {
 	unsigned char pad[136];
@@ -2985,7 +2985,7 @@ groestl_big_close(sph_groestl_big_context *sc,
 	sph_enc64be(pad + pad_len - 8, count_high);
 	sph_enc64be(pad + pad_len - 4, count_low);
 #endif
-	groestl_big_core(sc, pad, pad_len);
+	soferox_big_core(sc, pad, pad_len);
 	READ_STATE_BIG(sc);
 	FINAL_BIG;
 #if SPH_GROESTL_64
@@ -2996,119 +2996,119 @@ groestl_big_close(sph_groestl_big_context *sc,
 		enc32e(pad + (u << 2), H[u + 16]);
 #endif
 	memcpy(dst, pad + 64 - out_len, out_len);
-	groestl_big_init(sc, (unsigned)out_len << 3);
+	soferox_big_init(sc, (unsigned)out_len << 3);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl224_init(void *cc)
+sph_soferox224_init(void *cc)
 {
-	groestl_small_init((sph_groestl_small_context*)cc, 224);
+	soferox_small_init((sph_soferox_small_context*)cc, 224);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl224(void *cc, const void *data, size_t len)
+sph_soferox224(void *cc, const void *data, size_t len)
 {
-	groestl_small_core((sph_groestl_small_context*)cc, data, len);
+	soferox_small_core((sph_soferox_small_context*)cc, data, len);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl224_close(void *cc, void *dst)
+sph_soferox224_close(void *cc, void *dst)
 {
-	groestl_small_close((sph_groestl_small_context*)cc, 0, 0, dst, 28);
+	soferox_small_close((sph_soferox_small_context*)cc, 0, 0, dst, 28);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl224_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+sph_soferox224_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
-	groestl_small_close((sph_groestl_small_context*)cc, ub, n, dst, 28);
+	soferox_small_close((sph_soferox_small_context*)cc, ub, n, dst, 28);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl256_init(void *cc)
+sph_soferox256_init(void *cc)
 {
-	groestl_small_init((sph_groestl_small_context*)cc, 256);
+	soferox_small_init((sph_soferox_small_context*)cc, 256);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl256(void *cc, const void *data, size_t len)
+sph_soferox256(void *cc, const void *data, size_t len)
 {
-	groestl_small_core((sph_groestl_small_context*)cc, data, len);
+	soferox_small_core((sph_soferox_small_context*)cc, data, len);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl256_close(void *cc, void *dst)
+sph_soferox256_close(void *cc, void *dst)
 {
-	groestl_small_close((sph_groestl_small_context*)cc, 0, 0, dst, 32);
+	soferox_small_close((sph_soferox_small_context*)cc, 0, 0, dst, 32);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl256_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+sph_soferox256_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
-	groestl_small_close((sph_groestl_small_context*)cc, ub, n, dst, 32);
+	soferox_small_close((sph_soferox_small_context*)cc, ub, n, dst, 32);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl384_init(void *cc)
+sph_soferox384_init(void *cc)
 {
-	groestl_big_init((sph_groestl_big_context*)cc, 384);
+	soferox_big_init((sph_soferox_big_context*)cc, 384);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl384(void *cc, const void *data, size_t len)
+sph_soferox384(void *cc, const void *data, size_t len)
 {
-	groestl_big_core((sph_groestl_big_context*)cc, data, len);
+	soferox_big_core((sph_soferox_big_context*)cc, data, len);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl384_close(void *cc, void *dst)
+sph_soferox384_close(void *cc, void *dst)
 {
-	groestl_big_close((sph_groestl_big_context*)cc, 0, 0, dst, 48);
+	soferox_big_close((sph_soferox_big_context*)cc, 0, 0, dst, 48);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl384_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+sph_soferox384_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
-	groestl_big_close((sph_groestl_big_context*)cc, ub, n, dst, 48);
+	soferox_big_close((sph_soferox_big_context*)cc, ub, n, dst, 48);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl512_init(void *cc)
+sph_soferox512_init(void *cc)
 {
-	groestl_big_init((sph_groestl_big_context*)cc, 512);
+	soferox_big_init((sph_soferox_big_context*)cc, 512);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl512(void *cc, const void *data, size_t len)
+sph_soferox512(void *cc, const void *data, size_t len)
 {
-	groestl_big_core((sph_groestl_big_context*)cc, data, len);
+	soferox_big_core((sph_soferox_big_context*)cc, data, len);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl512_close(void *cc, void *dst)
+sph_soferox512_close(void *cc, void *dst)
 {
-	groestl_big_close((sph_groestl_big_context*)cc, 0, 0, dst, 64);
+	soferox_big_close((sph_soferox_big_context*)cc, 0, 0, dst, 64);
 }
 
-/* see sph_groestl.h */
+/* see sph_soferox.h */
 void
-sph_groestl512_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
+sph_soferox512_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
-	groestl_big_close((sph_groestl_big_context*)cc, ub, n, dst, 64);
+	soferox_big_close((sph_soferox_big_context*)cc, ub, n, dst, 64);
 }
 
 } // "C" 

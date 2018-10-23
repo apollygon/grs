@@ -31,7 +31,7 @@ struct ChainTxData {
     double dTxRate;
 };
 
-typedef std::vector<std::vector<unsigned char> > CAlertKeys;	//GRS
+typedef std::vector<std::vector<unsigned char> > CAlertKeys;	//SFX
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the

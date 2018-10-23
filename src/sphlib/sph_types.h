@@ -281,7 +281,7 @@
  * The fourteen second-round SHA-3 candidates are also implemented;
  * when applicable, the implementations follow the "final" specifications
  * as published for the third round of the SHA-3 competition (BLAKE,
- * Groestl, JH, Keccak and Skein have been tweaked for third round).
+ * Soferox, JH, Keccak and Skein have been tweaked for third round).
  *
  * - BLAKE family: file <code>sph_blake.h</code>
  *   - BLAKE-224: short name: <code>blake224</code>
@@ -309,11 +309,11 @@
  *   - Fugue-256: short name: <code>fugue256</code>
  *   - Fugue-384: short name: <code>fugue384</code>
  *   - Fugue-512: short name: <code>fugue512</code>
- * - Groestl family: file <code>sph_groestl.h</code>
- *   - Groestl-224: short name: <code>groestl224</code>
- *   - Groestl-256: short name: <code>groestl256</code>
- *   - Groestl-384: short name: <code>groestl384</code>
- *   - Groestl-512: short name: <code>groestl512</code>
+ * - Soferox family: file <code>sph_soferox.h</code>
+ *   - Soferox-224: short name: <code>soferox224</code>
+ *   - Soferox-256: short name: <code>soferox256</code>
+ *   - Soferox-384: short name: <code>soferox384</code>
+ *   - Soferox-512: short name: <code>soferox512</code>
  * - Hamsi family: file <code>sph_hamsi.h</code>
  *   - Hamsi-224: short name: <code>hamsi224</code>
  *   - Hamsi-256: short name: <code>hamsi256</code>

@@ -865,9 +865,9 @@ bool EvalScript(std::vector<std::vector<unsigned char> >& stack, const CScript& 
                     else if (opcode == OP_HASH160)
                         CHash160().Write(vch.data(), vch.size()).Finalize(vchHash.data());
                     else if (opcode == OP_HASH256) {
-						uint256 v256 = XCoin::HashGroestl(XCoin::ConstBuf(vch));
+						uint256 v256 = XCoin::HashSoferox(XCoin::ConstBuf(vch));
 						memcpy(&vchHash[0], v256.begin(), 32);
-//GRS                        CHash256().Write(vch.data(), vch.size()).Finalize(vchHash.data());
+//SFX                        CHash256().Write(vch.data(), vch.size()).Finalize(vchHash.data());
                     }
                     popstack(stack);
                     stack.push_back(vchHash);
@@ -1256,7 +1256,7 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
     // Serialize and hash
     CHashWriter ss(SER_GETHASH, 0);
     ss << txTmp << nHashType;
-    return ss.GetHash();						//GRS uses single-SHA256
+    return ss.GetHash();						//SFX uses single-SHA256
 }
 
 bool TransactionSignatureChecker::VerifySignature(const std::vector<unsigned char>& vchSig, const CPubKey& pubkey, const uint256& sighash) const

@@ -16,11 +16,11 @@ const struct VBDeploymentInfo VersionBitsDeploymentInfo[Consensus::MAX_VERSION_B
     },
     {
         /*.name =*/ "segwit",
-        /*.gbt_force =*/ true,	//GRS
+        /*.gbt_force =*/ true,	//SFX
     },
     {
         /*.name =*/ "bip65",
-        /*.gbt_force =*/ true,	//GRS
+        /*.gbt_force =*/ true,	//SFX
     }
 };
 

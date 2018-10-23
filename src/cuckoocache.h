@@ -13,11 +13,11 @@
 #include <memory>
 #include <vector>
 
-//GRS
+//SFX
 #ifdef _MSC_VER
-#	define GRS_TEMPLATE_OPERATOR_PREFIX
+#	define SFX_TEMPLATE_OPERATOR_PREFIX
 #else
-#	define GRS_TEMPLATE_OPERATOR_PREFIX template
+#	define SFX_TEMPLATE_OPERATOR_PREFIX template
 #endif
 
 /** namespace CuckooCache provides high performance cache primitives
@@ -248,14 +248,14 @@ private:
      */
     inline std::array<uint32_t, 8> compute_hashes(const Element& e) const
     {
-        return {{(uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<0>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<1>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<2>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<3>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<4>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<5>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<6>(e) * (uint64_t)size) >> 32),
-                 (uint32_t)((hash_function.GRS_TEMPLATE_OPERATOR_PREFIX operator()<7>(e) * (uint64_t)size) >> 32)}};
+        return {{(uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<0>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<1>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<2>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<3>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<4>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<5>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<6>(e) * (uint64_t)size) >> 32),
+                 (uint32_t)((hash_function.SFX_TEMPLATE_OPERATOR_PREFIX operator()<7>(e) * (uint64_t)size) >> 32)}};
     }
 
     /* end

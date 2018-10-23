@@ -56,9 +56,9 @@ public:
      */
     enum Unit
     {
-        GRS,
-        mGRS,
-        uGRS
+        SFX,
+        mSFX,
+        uSFX
     };
 
     enum SeparatorStyle
