@@ -348,9 +348,9 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-		consensus.BIP16Height = 1439423;
+		consensus.BIP16Height = 1;
 		consensus.BIP34Height = 800000;
-		consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
+		consensus.BIP34Hash = uint256S("0x9b07aff952ab00fff9b29ef778f2c8b87cb8bb6b7e2b7a21554238ab92a7dec0");
 		consensus.BIP66Height = 800000;
 		consensus.BIP65Height = INT_MAX;	//!!!?
 
@@ -478,7 +478,7 @@ public:
 		};
 
 		chainTxData = ChainTxData{
-			1537197711, // * UNIX timestamp of last checkpoint block
+			1530728779, // * UNIX timestamp of last checkpoint block
 			0,   // * total number of transactions between genesis and last checkpoint
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			100.0     // * estimated number of transactions per day after checkpoint
