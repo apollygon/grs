@@ -384,10 +384,10 @@ public:
         * Don't set a value bigger than 0 if blockchain doesn't have any blocks yet.
         * Set your current ChainWork if you want nodes to wait until the whole blockchain is downloaded
         */
-        consensus.nMinimumChainWork = uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109");
+        consensus.nMinimumChainWork = uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109"); //0 block
+        consensus.defaultAssumeValid = uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f"); //0 block
 
 		/**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -402,23 +402,23 @@ public:
 		nDefaultPort = 5332;
         nPruneAfterHeight = 10000000;
 
-		 for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
-		 	genesis = CreateGenesisBlock(1530728779, nonce, 0x1e0fffff, 112, 0);
-		 	consensus.hashGenesisBlock = genesis.GetHash();
-		 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
-		 		printf("Wonderfull__mainnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		 		printf("Wonderfull__mainnet_genesis.nonce = %d\n", genesis.nNonce);	
-		 		printf("Wonderfull__mainnet_genesis.version = %d\n", genesis.nVersion);
-		 		printf("Wonderfull__mainnet_genesis.bits = %x\n", genesis.nBits);
-		 		printf("Wonderfull__mainnet_genesis.time = %d\n", genesis.nTime);
-		 		printf("Wonderfull__mainnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-		 		break;
-		 	}
+		// for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
+		// 	genesis = CreateGenesisBlock(1530728779, nonce, 0x1e0fffff, 112, 0);
+		// 	consensus.hashGenesisBlock = genesis.GetHash();
+		// 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
+		// 		printf("Wonderfull__mainnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		// 		printf("Wonderfull__mainnet_genesis.nonce = %d\n", genesis.nNonce);	
+		// 		printf("Wonderfull__mainnet_genesis.version = %d\n", genesis.nVersion);
+		// 		printf("Wonderfull__mainnet_genesis.bits = %x\n", genesis.nBits);
+		// 		printf("Wonderfull__mainnet_genesis.time = %d\n", genesis.nTime);
+		// 		printf("Wonderfull__mainnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+		// 		break;
+		// 	}
 
-		 }
+		// }
 
 
-		genesis = CreateGenesisBlock(1537197711, 475135, 0x1e0fffff, 112, 0);
+		genesis = CreateGenesisBlock(1530728779, 929920, 0x1e0fffff, 112, 0);
 
         /**
          * Build the genesis block. Note that the output of its generation
@@ -443,7 +443,7 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 		// printf("main_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         // printf("main_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		assert(consensus.hashGenesisBlock == uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109"));
+		assert(consensus.hashGenesisBlock == uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f"));
 		assert(genesis.hashMerkleRoot == uint256S("0x7561b273ff730b41f39f620336b70456874cc51aa1622e745e23d1f1f263db8d"));
 
         // vSeeds.push_back("soferox.org");
@@ -473,7 +473,7 @@ public:
 		checkpointData = (CCheckpointData) {
 #endif
 			{
-				{0		, uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109")},
+				{0		, uint256S("0x00000365c271be8b1dfa261bcf130e3b0c2459951c8ad0bddb83234ebb46dc9f")},
 			}
 		};
 
