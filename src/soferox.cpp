@@ -16,6 +16,18 @@
 #include "utilstrencodings.h"
 #include "crypto/sha256.h"
 
+#include "soferox.h"
+
+#include <boost/assign/list_of.hpp>
+
+#include "arith_uint256.h"
+#include "chain.h"
+#include "chainparams.h"
+#include "consensus/merkle.h"
+#include "consensus/params.h"
+#include "utilstrencodings.h"
+#include "crypto/sha256.h"
+
 #include "bignum.h"
 
 #include "chainparamsseeds.h"
@@ -53,7 +65,7 @@ using namespace std;
 
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 int64_t minimumSubsidy = 5.0 * COIN;
-static const int64_t nPremine = 240640 * COIN;
+static const int64_t nPremine = 20000000 * COIN;
 
 int64_t static GetBlockSubsidy(int nHeight){
 
@@ -354,24 +366,28 @@ public:
 
 		// Deployment of BIP68, BIP112, and BIP113.
 		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1484956800; // Jan 21, 2017
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1498003200; // Jun 21, 2017
+		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1537228800; // Sep 18, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1546214400; // Dec 31, 2018
 
 		// Deployment of SegWit (BIP141 and BIP143)
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
+		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1537228800; // Sep 18, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1546214400; // Dec 31, 2018
 
 		// Deployment of BIP65
 		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
-		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1484956800; // Jan 21, 2017
-		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1498003200; // Jun 21, 2017
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1537228800; // Sep 18, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1546214400; // Dec 31, 2018
 
-        // The best chain should have at least this much work.
+        /**
+        * The best chain should have at least this much work.
+        * Don't set a value bigger than 0 if blockchain doesn't have any blocks yet.
+        * Set your current ChainWork if you want nodes to wait until the whole blockchain is downloaded
+        */
         consensus.nMinimumChainWork = uint256S("0x00");
-        
+
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000080616477a1c30fa2ac2c06a83b6a542fc367892d9f63d0869116eb432e6"); //2035383
+        consensus.defaultAssumeValid = uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109"); //0 block
 
 		/**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -386,8 +402,23 @@ public:
 		nDefaultPort = 5332;
         nPruneAfterHeight = 10000000;
 
+		// for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
+		// 	genesis = CreateGenesisBlock(1530728779, nonce, 0x1e0fffff, 112, 0);
+		// 	consensus.hashGenesisBlock = genesis.GetHash();
+		// 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
+		// 		printf("Wonderfull__mainnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		// 		printf("Wonderfull__mainnet_genesis.nonce = %d\n", genesis.nNonce);	
+		// 		printf("Wonderfull__mainnet_genesis.version = %d\n", genesis.nVersion);
+		// 		printf("Wonderfull__mainnet_genesis.bits = %x\n", genesis.nBits);
+		// 		printf("Wonderfull__mainnet_genesis.time = %d\n", genesis.nTime);
+		// 		printf("Wonderfull__mainnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+		// 		break;
+		// 	}
 
-		genesis = CreateGenesisBlock(1538469464, 4043859, 0x1e0fffff, 512, 0);
+		// }
+
+
+		genesis = CreateGenesisBlock(1537197711, 475135, 0x1e0fffff, 112, 0);
 
         /**
          * Build the genesis block. Note that the output of its generation
@@ -412,14 +443,14 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 		// printf("main_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         // printf("main_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		assert(consensus.hashGenesisBlock == uint256S("0x0000080616477a1c30fa2ac2c06a83b6a542fc367892d9f63d0869116eb432e6"));
+		assert(consensus.hashGenesisBlock == uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109"));
 		assert(genesis.hashMerkleRoot == uint256S("0x7561b273ff730b41f39f620336b70456874cc51aa1622e745e23d1f1f263db8d"));
 
         // vSeeds.push_back("soferox.org");
 		// vSeeds.push_back("electrum1.soferox.org");
 		// vSeeds.push_back("electrum2.soferox.org");
 		// vSeeds.push_back("jswallet.soferox.org");
-		// vSeeds.push_back("soferoxsight.soferox.org");
+		// vSeeds.push_back("soferosight.soferox.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63); // guarantees the first character is S
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125); // guarantees the first character is s
@@ -442,12 +473,17 @@ public:
 		checkpointData = (CCheckpointData) {
 #endif
 			{
-				{0		, uint256S("0x0000080616477a1c30fa2ac2c06a83b6a542fc367892d9f63d0869116eb432e6")},
+				{0		, uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109")},
+				// {28888, uint256S("0x00000000000228ce19f55cf0c45e04c7aa5a6a873ed23902b3654c3c49884502")},
+				// {58888, uint256S("0x0000000000dd85f4d5471febeb174a3f3f1598ab0af6616e9f266b56272274ef")},
+				// {111111, uint256S("0x00000000013de206275ee83f93bee57622335e422acbf126a37020484c6e113c")},
+				// {1000000, uint256S("0x000000000df8560f2612d5f28b52ed1cf81b0f87ac0c9c7242cbcf721ca6854a")},
+				// {2000000, uint256S("0x00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66")},
 			}
 		};
 
 		chainTxData = ChainTxData{
-			1538469464, // * UNIX timestamp of last checkpoint block
+			1537197711, // * UNIX timestamp of last checkpoint block
 			0,   // * total number of transactions between genesis and last checkpoint
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			100.0     // * estimated number of transactions per day after checkpoint
@@ -479,13 +515,13 @@ public:
 
 		// Deployment of BIP68, BIP112, and BIP113.
 		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1484956800; // Jan 21, 2017
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1498003200; // Jun 21, 2017
+		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1535500800; // Aug 29, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1546214400; // Dec 31, 2018
 
 		// Deployment of SegWit (BIP141, BIP143, and BIP147)
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
+		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1535500800; // Aug 29, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1546214400; // Dec 31, 2018
 
 		consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
@@ -512,16 +548,32 @@ public:
 		*/
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
+
+		// for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
+		// 	genesis = CreateGenesisBlock(1530728750, nonce, 0x1e00ffff, 3, 0);
+		// 	consensus.hashGenesisBlock = genesis.GetHash();
+		// 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
+		// 		printf("Wonderfull__testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());	
+		// 		printf("Wonderfull__testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());	
+		// 		printf("Wonderfull__testnet_genesis.nonce = %d\n", genesis.nNonce);	
+		// 		break;
+		// 	}
+	
+		// }
+
 		genesis = CreateGenesisBlock(1537197790, 2573276, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
+		// printf("testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+		// printf("testnet_nNounce = %d\n", genesis.nNonce);
         assert(consensus.hashGenesisBlock == uint256S("0x000000ae86d44fa10749fab5c0de4dafc6c96c008d6cf20c11c7190e221cf057"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-		vSeeds.push_back("testnet1.soferox.org");
-		vSeeds.push_back("testnet2.soferox.org");
-		vSeeds.push_back("testp2pool.soferox.org");
-		vSeeds.push_back("testp2pool2.soferox.org");
+		// vSeeds.push_back("testnet1.soferox.org");
+		// vSeeds.push_back("testnet2.soferox.org");
+		// vSeeds.push_back("testp2pool.soferox.org");
+		// vSeeds.push_back("testp2pool2.soferox.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -545,13 +597,13 @@ public:
 		checkpointData = (CCheckpointData) {
 #endif
 			{
-				{0		, uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")},
-				{ 50000 , uint256S("0x00000081951486bb535f8cffec8ac0641bd24b814f89641f6cc2cad737f18950") },
+				 //{0		, uint256S("0xbef0b3124119637ecd010cf263a47192eca747e9ef9c4d4f43eacb8fc2266644")},
+				// { 50000 , uint256S("0x00000081951486bb535f8cffec8ac0641bd24b814f89641f6cc2cad737f18950") },
 			}
 		};
 
 		chainTxData = ChainTxData{
-			1440000002,
+			1537197790,
 			0,
 			10
 		};
@@ -614,7 +666,7 @@ public:
 		checkpointData = (CCheckpointData) {
 #endif
 			{
-				{0, uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")},
+				// {0, uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")},
 			}
 		};
 
