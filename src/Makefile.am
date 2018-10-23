@@ -23,23 +23,23 @@ BITCOIN_INCLUDES=-I$(builddir) $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFL
 BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBBITCOIN_SERVER=libgroestlcoin_server.a
-LIBBITCOIN_COMMON=libgroestlcoin_common.a
-LIBBITCOIN_CONSENSUS=libgroestlcoin_consensus.a
-LIBBITCOIN_CLI=libgroestlcoin_cli.a
-LIBBITCOIN_UTIL=libgroestlcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libgroestlcoin_crypto.a
-LIBBITCOINQT=qt/libgroestlcoinqt.a
+LIBBITCOIN_SERVER=libsoferox_server.a
+LIBBITCOIN_COMMON=libsoferox_common.a
+LIBBITCOIN_CONSENSUS=libsoferox_consensus.a
+LIBBITCOIN_CLI=libsoferox_cli.a
+LIBBITCOIN_UTIL=libsoferox_util.a
+LIBBITCOIN_CRYPTO=crypto/libsoferox_crypto.a
+LIBBITCOINQT=qt/libsoferoxqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libgroestlcoin_zmq.a
+LIBBITCOIN_ZMQ=libsoferox_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libgroestlcoinconsensus.la
+LIBBITCOINCONSENSUS=libsoferoxconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libgroestlcoin_wallet.a
+LIBBITCOIN_WALLET=libsoferox_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -65,11 +65,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += groestlcoind
+  bin_PROGRAMS += soferoxd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += groestlcoin-cli groestlcoin-tx
+  bin_PROGRAMS += soferox-cli soferox-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -83,9 +83,9 @@ BITCOIN_CORE_H = \
   blockencodings.h \
   chain.h \
   bignum.h \
-  groestlcoin.h \
+  soferox.h \
   sphlib/sph_types.h \
-  sphlib/sph_groestl.h \
+  sphlib/sph_soferox.h \
   chainparamsbase.h \
   chainparamsseeds.h \
   checkpoints.h \
@@ -186,12 +186,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
-libgroestlcoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libsoferox_util_a-clientversion.$(OBJEXT): obj/build.h
 
 # server: shared between bitcoind and bitcoin-qt
-libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libgroestlcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_server_a_SOURCES = \
+libsoferox_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libsoferox_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_server_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   bloom.cpp \
@@ -233,9 +233,9 @@ libgroestlcoin_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libgroestlcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libgroestlcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_zmq_a_SOURCES = \
+libsoferox_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libsoferox_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
@@ -244,9 +244,9 @@ endif
 
 # wallet: shared between bitcoind and bitcoin-qt, but only linked
 # when wallet enabled
-libgroestlcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libgroestlcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_wallet_a_SOURCES = \
+libsoferox_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libsoferox_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/feebumper.cpp \
@@ -260,9 +260,9 @@ libgroestlcoin_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libgroestlcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libgroestlcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libgroestlcoin_crypto_a_SOURCES = \
+crypto_libsoferox_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libsoferox_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libsoferox_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/chacha20.h \
@@ -282,13 +282,13 @@ crypto_libgroestlcoin_crypto_a_SOURCES = \
   crypto/sha512.h
 
 if USE_ASM
-crypto_libgroestlcoin_crypto_a_SOURCES += crypto/sha256_sse4.cpp
+crypto_libsoferox_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
 # consensus: shared between all executables that validate any consensus rules.
-libgroestlcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libgroestlcoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_consensus_a_SOURCES = \
+libsoferox_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libsoferox_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -298,8 +298,8 @@ libgroestlcoin_consensus_a_SOURCES = \
   consensus/validation.h \
   hash.cpp \
   hash.h \
-  sphlib/groestl.cpp \
-  groestlcoin-hash.cpp \
+  sphlib/soferox.cpp \
+  soferox-hash.cpp \
   prevector.h \
   primitives/block.cpp \
   primitives/block.h \
@@ -307,7 +307,7 @@ libgroestlcoin_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/groestlcoinconsensus.cpp \
+  script/soferoxconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -323,11 +323,11 @@ libgroestlcoin_consensus_a_SOURCES = \
   version.h
 
 # common: shared between bitcoind, and bitcoin-qt and non-server tools
-libgroestlcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libgroestlcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_common_a_SOURCES = \
+libsoferox_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libsoferox_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_common_a_SOURCES = \
   base58.cpp \
-  groestlcoin.cpp \
+  soferox.cpp \
   bech32.cpp \
   coins.cpp \
   compressor.cpp \
@@ -348,9 +348,9 @@ libgroestlcoin_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libgroestlcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libgroestlcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_util_a_SOURCES = \
+libsoferox_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libsoferox_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -371,30 +371,30 @@ libgroestlcoin_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libgroestlcoin_util_a_SOURCES += compat/glibc_compat.cpp
+libsoferox_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between groestlcoin-cli and groestlcoin-qt
-libgroestlcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libgroestlcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_cli_a_SOURCES = \
+# cli: shared between soferox-cli and soferox-qt
+libsoferox_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libsoferox_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferox_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libgroestlcoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libsoferox_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-groestlcoind_SOURCES = groestlcoind.cpp
-groestlcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-groestlcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-groestlcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+soferoxd_SOURCES = soferoxd.cpp
+soferoxd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+soferoxd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+soferoxd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-groestlcoind_SOURCES += groestlcoind-res.rc
+soferoxd_SOURCES += soferoxd-res.rc
 endif
 
-groestlcoind_LDADD = \
+soferoxd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -408,38 +408,38 @@ groestlcoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-groestlcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+soferoxd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# groestlcoin-cli binary #
-groestlcoin_cli_SOURCES = groestlcoin-cli.cpp
-groestlcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-groestlcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-groestlcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# soferox-cli binary #
+soferox_cli_SOURCES = soferox-cli.cpp
+soferox_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+soferox_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+soferox_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-groestlcoin_cli_SOURCES += groestlcoin-cli-res.rc
+soferox_cli_SOURCES += soferox-cli-res.rc
 endif
 
-groestlcoin_cli_LDADD = \
+soferox_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-groestlcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+soferox_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# groestlcoin-tx binary #
-groestlcoin_tx_SOURCES = groestlcoin-tx.cpp
-groestlcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-groestlcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-groestlcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# soferox-tx binary #
+soferox_tx_SOURCES = soferox-tx.cpp
+soferox_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+soferox_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+soferox_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-groestlcoin_tx_SOURCES += groestlcoin-tx-res.rc
+soferox_tx_SOURCES += soferox-tx-res.rc
 endif
 
-groestlcoin_tx_LDADD = \
+soferox_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -447,22 +447,22 @@ groestlcoin_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-groestlcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+soferox_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/groestlcoinconsensus.h
-libgroestlcoinconsensus_la_SOURCES = $(crypto_libgroestlcoin_crypto_a_SOURCES) $(libgroestlcoin_consensus_a_SOURCES)
+include_HEADERS = script/soferoxconsensus.h
+libsoferoxconsensus_la_SOURCES = $(crypto_libsoferox_crypto_a_SOURCES) $(libsoferox_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libgroestlcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libsoferoxconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libgroestlcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libgroestlcoinconsensus_la_LIBADD = $(LIBSECP256K1)
-libgroestlcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libgroestlcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsoferoxconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libsoferoxconsensus_la_LIBADD = $(LIBSECP256K1)
+libsoferoxconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libsoferoxconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #

@@ -48,7 +48,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "Groestlcoin cannot be compiled without assertions."
+# error "Soferox cannot be compiled without assertions."
 #endif
 
 #define MICRO 0.000001
@@ -238,7 +238,7 @@ CTxMemPool mempool(&feeEstimator);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "GroestlCoin Signed Message:\n";
+const std::string strMessageMagic = "SoferoxCoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1142,7 +1142,7 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
     return true;
 }
 
-/*!!!GRS
+/*!!!SFX
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
@@ -1685,7 +1685,7 @@ static bool WriteTxIndexDataForBlock(const CBlock& block, CValidationState& stat
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("groestlcoin-scriptch");
+    RenameThread("soferox-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -1889,7 +1889,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
         }
     }
 
-	//GRS
+	//SFX
 	int32_t nVersion = block.nVersion;
 	if (nVersion == 112)
 		nVersion = 1;
@@ -3135,7 +3135,7 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationSta
 
     // Check proof of work
     const Consensus::Params& consensusParams = params.GetConsensus();
- 	//GRS, GetNextWorkRequired() is non-deterministic for nHeight<100000
+ 	//SFX, GetNextWorkRequired() is non-deterministic for nHeight<100000
     if (pindexPrev->nHeight >= (100000 - 1) && block.nBits != GetNextWorkRequired(pindexPrev, &block, consensusParams))
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work");
 
@@ -3153,7 +3153,7 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationSta
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
         return state.Invalid(false, REJECT_INVALID, "time-too-old", "block's timestamp is too early");
 
-	//GRS
+	//SFX
     int32_t nVersion = block.nVersion;
     if (nVersion == 112)
         nVersion = 1;
@@ -3200,7 +3200,7 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
         }
     }
 
-	//GRS
+	//SFX
 	int32_t nVersion = block.nVersion;
 	if (nVersion == 112)
 		nVersion = 1;

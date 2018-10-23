@@ -27,7 +27,7 @@
 #	pragma comment(lib, "miniupnpc")
 #endif
 
-#pragma comment(lib, "groestlcoin-common")
+#pragma comment(lib, "soferox-common")
 
 #ifdef USE_QT
 #	pragma comment(lib, "imm32")

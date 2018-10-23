@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="groestlcoind.cpp">
+    <ClCompile Include="soferoxd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="win-libs.cpp">
@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="groestlcoind-res.rc">
+    <ResourceCompile Include="soferoxd-res.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

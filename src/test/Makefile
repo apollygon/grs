@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. groestlcoin_test
+	$(MAKE) -C .. soferox_test
 clean:
-	$(MAKE) -C .. groestlcoin_test_clean
+	$(MAKE) -C .. soferox_test_clean
 check:
-	$(MAKE) -C .. groestlcoin_test_check
+	$(MAKE) -C .. soferox_test_check

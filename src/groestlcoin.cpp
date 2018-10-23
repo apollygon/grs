@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2015 The Groestlcoin developers
+// Copyright (c) 2014-2015 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "groestlcoin.h"
+#include "soferox.h"
 
 #include <boost/assign/list_of.hpp>
 
@@ -129,7 +129,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 // minimum amount of work that could possibly be required nTime after
 // minimum work required was nBase
 //
-static const int64_t nTargetSpacing = 1 * 60; // groestlcoin every 60 seconds
+static const int64_t nTargetSpacing = 1 * 60; // soferox every 60 seconds
 
 //!!!BUG this function is non-deterministic  because FP-arithetics
 unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params) {
@@ -383,7 +383,7 @@ public:
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd4;
 
-		nDefaultPort = 1331;
+		nDefaultPort = 5332;
         nPruneAfterHeight = 10000000;
 
 
@@ -415,11 +415,11 @@ public:
 		assert(consensus.hashGenesisBlock == uint256S("0x0000080616477a1c30fa2ac2c06a83b6a542fc367892d9f63d0869116eb432e6"));
 		assert(genesis.hashMerkleRoot == uint256S("0x7561b273ff730b41f39f620336b70456874cc51aa1622e745e23d1f1f263db8d"));
 
-        // vSeeds.push_back("groestlcoin.org");
-		// vSeeds.push_back("electrum1.groestlcoin.org");
-		// vSeeds.push_back("electrum2.groestlcoin.org");
-		// vSeeds.push_back("jswallet.groestlcoin.org");
-		// vSeeds.push_back("groestlsight.groestlcoin.org");
+        // vSeeds.push_back("soferox.org");
+		// vSeeds.push_back("electrum1.soferox.org");
+		// vSeeds.push_back("electrum2.soferox.org");
+		// vSeeds.push_back("jswallet.soferox.org");
+		// vSeeds.push_back("soferoxsight.soferox.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63); // guarantees the first character is S
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125); // guarantees the first character is s
@@ -427,7 +427,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        bech32_hrp = "grs";
+        bech32_hrp = "sfx";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -500,7 +500,7 @@ public:
         pchMessageStart[2] = 0x09;
         pchMessageStart[3] = 0x07;
 
-        nDefaultPort = 17777;
+        nDefaultPort = 16644;
         nPruneAfterHeight = 1000000;
 
 /*!!!R		for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
@@ -518,10 +518,10 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-		vSeeds.push_back("testnet1.groestlcoin.org");
-		vSeeds.push_back("testnet2.groestlcoin.org");
-		vSeeds.push_back("testp2pool.groestlcoin.org");
-		vSeeds.push_back("testp2pool2.groestlcoin.org");
+		vSeeds.push_back("testnet1.soferox.org");
+		vSeeds.push_back("testnet2.soferox.org");
+		vSeeds.push_back("testp2pool.soferox.org");
+		vSeeds.push_back("testp2pool2.soferox.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -533,7 +533,7 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
-//!!!?        fMiningRequiresPeers = false;			//GRS  Testnet can have single node
+//!!!?        fMiningRequiresPeers = false;			//SFX  Testnet can have single node
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = false;

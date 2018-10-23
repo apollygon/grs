@@ -555,7 +555,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="qt\res\icons\groestlcoin.ico">
+    <Image Include="qt\res\icons\soferox.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -3,9 +3,9 @@ exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
-Name: Groestlcoin Core consensus library
-Description: Library for the Groestlcoin consensus protocol.
+Name: Soferox Core consensus library
+Description: Library for the Soferox consensus protocol.
 Version: 2.16.3
-Libs: -L${libdir} -lgroestlcoinconsensus
+Libs: -L${libdir} -lsoferoxconsensus
 Cflags: -I${includedir}
 Requires.private: libcrypto

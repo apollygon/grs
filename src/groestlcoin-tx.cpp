@@ -29,7 +29,7 @@
 
 static bool fCreateBlank;
 static std::map<std::string,UniValue> registers;
-#define CONTINUE_EXECUTION 1 //GRS
+#define CONTINUE_EXECUTION 1 //SFX
 
 //
 // This function returns either one of EXIT_ codes when it's expected to stop the process or
@@ -55,10 +55,10 @@ static int AppInitRawTx(int argc, char* argv[])
     if (argc<2 || gArgs.IsArgSet("-?") || gArgs.IsArgSet("-h") || gArgs.IsArgSet("-help"))
     {
         // First part of help message is specific to this utility
-        std::string strUsage = strprintf(_("%s groestlcoin-tx utility version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = strprintf(_("%s soferox-tx utility version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
-              "  groestlcoin-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded groestlcoin transaction") + "\n" +
-              "  groestlcoin-tx [options] -create [commands]   " + _("Create hex-encoded groestlcoin transaction") + "\n" +
+              "  soferox-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded soferox transaction") + "\n" +
+              "  soferox-tx [options] -create [commands]   " + _("Create hex-encoded soferox transaction") + "\n" +
               "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());

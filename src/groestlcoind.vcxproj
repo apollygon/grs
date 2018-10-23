@@ -195,11 +195,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="groestlcoind.cpp" />
+    <ClCompile Include="soferoxd.cpp" />
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="groestlcoind-res.rc" />
+    <ResourceCompile Include="soferoxd-res.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

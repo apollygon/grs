@@ -1,20 +1,20 @@
-Groestlcoin Core version *2.16.0* is now available from:
+Soferox Core version *2.16.0* is now available from:
 
-  <https://groestlcoin.org/downloads/>
+  <https://soferox.org/downloads/>
 
 This is a new major version release, including various bugfixes and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/groestlcoin/groestlcoin/issues>
+  <https://github.com/soferox/soferox/issues>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the 
-installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
-or `groestlcoind`/`groestlcoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Soferox-Qt` (on Mac)
+or `soferoxd`/`soferox-qt` (on Linux).
 
 The first time you run version 2.16.0, your chainstate database will
 be converted to a new format, which will take anywhere from a few minutes to
@@ -32,10 +32,10 @@ Wallets created in 2.16 and later are not compatible with versions prior to 2.16
 Compatibility
 ==============
 
-Groestlcoin Core is extensively tested on multiple operating systems using
+Soferox Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
 
-Groestlcoin Core should also work on most other Unix-like systems but is not
+Soferox Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 
@@ -67,7 +67,7 @@ improved, leading to much shorter sync and initial block download times.
 Manual Pruning
 --------------
 
-Groestlcoin Core has supported automatically pruning the blockchain since 2.11.0 Pruning
+Soferox Core has supported automatically pruning the blockchain since 2.11.0 Pruning
 the blockchain allows for significant storage space savings as the vast majority of
 the downloaded data can be discarded after processing so very little of it remains
 on the disk.
@@ -141,7 +141,7 @@ the same thing as the GUI icon. The command takes one boolean parameter,
 Out-of-sync Modal Info Layer
 ----------------------------
 
-When Groestlcoin Core is out-of-sync on startup, a semi-transparent information
+When Soferox Core is out-of-sync on startup, a semi-transparent information
 layer will be shown over top of the normal display. This layer contains
 details about the current sync progress and estimates the amount of time
 remaining to finish syncing. This layer can also be hidden and subsequently
@@ -150,19 +150,19 @@ unhidden by clicking on the progress bar at the bottom of the window.
 Support for JSON-RPC Named Arguments
 ------------------------------------
 
-Commands sent over the JSON-RPC interface and through the `groestlcoin-cli` binary
+Commands sent over the JSON-RPC interface and through the `soferox-cli` binary
 can now use named arguments. This follows the [JSON-RPC specification](http://www.jsonrpc.org/specification)
 for passing parameters by-name with an object.
 
-`groestlcoin-cli` has been updated to support this by parsing `name=value` arguments
+`soferox-cli` has been updated to support this by parsing `name=value` arguments
 when the `-named` option is given.
 
 Some examples:
 
-    src/groestlcoin-cli -named help command="help"
-    src/groestlcoin-cli -named getblockhash height=0
-    src/groestlcoin-cli -named getblock blockhash=0000000000000036ae5aabb18a2d345d19d60ba1927f071af2aa8eec7a27d41d
-    src/groestlcoin-cli -named sendtoaddress address="(snip)" amount="1.0" subtractfeefromamount=true
+    src/soferox-cli -named help command="help"
+    src/soferox-cli -named getblockhash height=0
+    src/soferox-cli -named getblock blockhash=0000000000000036ae5aabb18a2d345d19d60ba1927f071af2aa8eec7a27d41d
+    src/soferox-cli -named sendtoaddress address="(snip)" amount="1.0" subtractfeefromamount=true
 
 The order of arguments doesn't matter in this case. Named arguments are also
 useful to leave out arguments that should stay at their default value. The
@@ -367,7 +367,7 @@ other impact.
 
 This only affects users that have explicitly enabled UPnP through the GUI
 setting or through the `-upnp` option, as since the last UPnP vulnerability
-(in Groestlcoin Core 2.1.0.6) it has been disabled by default.
+(in Soferox Core 2.1.0.6) it has been disabled by default.
 
 If you use this option, it is recommended to upgrade to this version as soon as
 possible.
@@ -430,7 +430,7 @@ Fee estimation has been significantly improved in version 2.16, with more accura
     - The `nblocks` argument has been renamed to `conf_target` (to be consistent with other RPC methods).
     - An `estimate_mode` argument has been added. This argument takes one of the following strings: `CONSERVATIVE`, `ECONOMICAL` or `UNSET` (which defaults to `CONSERVATIVE`).
     - The RPC return object now contains an `errors` member, which returns errors encountered during processing.
-    - If Groestlcoin Core has not been running for long enough and has not seen enough blocks or transactions to produce an accurate fee estimation, an error will be returned (previously a value of -1 was used to indicate an error, which could be confused for a feerate).
+    - If Soferox Core has not been running for long enough and has not seen enough blocks or transactions to produce an accurate fee estimation, an error will be returned (previously a value of -1 was used to indicate an error, which could be confused for a feerate).
 - A new `estimaterawfee` RPC is added to provide raw fee data. External clients can query and use this data in their own fee estimation logic.
 
 Multi-wallet support
@@ -438,15 +438,15 @@ Multi-wallet support
 
 Groestkcoin Core now supports loading multiple, separate wallets (See [PR 8694](https://github.com/bitcoin/bitcoin/pull/8694), [PR 10849](https://github.com/bitcoin/bitcoin/pull/10849)). The wallets are completely separated, with individual balances, keys and received transactions.
 
-Multi-wallet is enabled by using more than one `-wallet` argument when starting Groestlcoin, either on the command line or in the Groestlcoin config file.
+Multi-wallet is enabled by using more than one `-wallet` argument when starting Soferox, either on the command line or in the Soferox config file.
 
-**In Groestlcoin-Qt, only the first wallet will be displayed and accessible for creating and signing transactions.** GUI selectable multiple wallets will be supported in a future version. However, even in 2.16 other loaded wallets will remain synchronized to the node's current tip in the background. This can be useful if running a pruned node, since loading a wallet where the most recent sync is beyond the pruned height results in having to download and revalidate the whole blockchain. Continuing to synchronize all wallets in the background avoids this problem.
+**In Soferox-Qt, only the first wallet will be displayed and accessible for creating and signing transactions.** GUI selectable multiple wallets will be supported in a future version. However, even in 2.16 other loaded wallets will remain synchronized to the node's current tip in the background. This can be useful if running a pruned node, since loading a wallet where the most recent sync is beyond the pruned height results in having to download and revalidate the whole blockchain. Continuing to synchronize all wallets in the background avoids this problem.
 
-Groestlcoin Core 2.16.0 contains the following changes to the RPC interface and `groestlcoin-cli` for multi-wallet:
+Soferox Core 2.16.0 contains the following changes to the RPC interface and `soferox-cli` for multi-wallet:
 
-* When running Groestlcoin Core with a single wallet, there are **no** changes to the RPC interface or `groestlcoin-cli`. All RPC calls and `groestlcoin-cli` commands continue to work as before.
-* When running Groestlcoin Core with multi-wallet, all *node-level* RPC methods continue to work as before. HTTP RPC requests should be send to the normal `<RPC IP address>:<RPC port>` endpoint, and `groestlcoin-cli` commands should be run as before. A *node-level* RPC method is any method which does not require access to the wallet.
-* When running Groestlcoin Core with multi-wallet, *wallet-level* RPC methods must specify the wallet for which they're intended in every request. HTTP RPC requests should be send to the `<RPC IP address>:<RPC port>/wallet/<wallet name>` endpoint, for example `127.0.0.1:1441/wallet/wallet1.dat`. `groestlcoin-cli` commands should be run with a `-rpcwallet` option, for example `groestlcoin-cli -rpcwallet=wallet1.dat getbalance`.
+* When running Soferox Core with a single wallet, there are **no** changes to the RPC interface or `soferox-cli`. All RPC calls and `soferox-cli` commands continue to work as before.
+* When running Soferox Core with multi-wallet, all *node-level* RPC methods continue to work as before. HTTP RPC requests should be send to the normal `<RPC IP address>:<RPC port>` endpoint, and `soferox-cli` commands should be run as before. A *node-level* RPC method is any method which does not require access to the wallet.
+* When running Soferox Core with multi-wallet, *wallet-level* RPC methods must specify the wallet for which they're intended in every request. HTTP RPC requests should be send to the `<RPC IP address>:<RPC port>/wallet/<wallet name>` endpoint, for example `127.0.0.1:5442/wallet/wallet1.dat`. `soferox-cli` commands should be run with a `-rpcwallet` option, for example `soferox-cli -rpcwallet=wallet1.dat getbalance`.
 * A new *node-level* `listwallets` RPC method is added to display which wallets are currently loaded. The names returned by this method are the same as those used in the HTTP endpoint and for the `rpcwallet` argument.
 
 Note that while multi-wallet is now fully supported, the RPC multi-wallet interface should be considered unstable for version 2.16.0, and there may backwards-incompatible changes in future versions.
@@ -454,7 +454,7 @@ Note that while multi-wallet is now fully supported, the RPC multi-wallet interf
 Replace-by-fee control in the GUI
 ---------------------------------
 
-Groestlcoin Core has supported creating opt-in replace-by-fee (RBF) transactions
+Soferox Core has supported creating opt-in replace-by-fee (RBF) transactions
 since version 2.13.3.
 
 In version 2.16, creating an opt-in RBF transaction and replacing the unconfirmed
@@ -463,7 +463,7 @@ transaction with a higher-fee transaction are both supported in the GUI (See [PR
 Removal of Coin Age Priority
 ----------------------------
 
-In previous versions of Groestlcoin Core, a portion of each block could be reserved for transactions based on the age and value of UTXOs they spent. This concept (Coin Age Priority) is a policy choice by miners, and there are no consensus rules around the inclusion of Coin Age Priority transactions in blocks. In practice, only a few miners continue to use Coin Age Priority for transaction selection in blocks. Groestlcoin Core 2.16 removes all remaining support for Coin Age Priority (See [PR 9602](https://github.com/bitcoin/bitcoin/pull/9602)). This has the following implications:
+In previous versions of Soferox Core, a portion of each block could be reserved for transactions based on the age and value of UTXOs they spent. This concept (Coin Age Priority) is a policy choice by miners, and there are no consensus rules around the inclusion of Coin Age Priority transactions in blocks. In practice, only a few miners continue to use Coin Age Priority for transaction selection in blocks. Soferox Core 2.16 removes all remaining support for Coin Age Priority (See [PR 9602](https://github.com/bitcoin/bitcoin/pull/9602)). This has the following implications:
 
 - The concept of *free transactions* has been removed. High Coin Age Priority transactions would previously be allowed to be relayed even if they didn't attach a miner fee. This is no longer possible since there is no concept of Coin Age Priority. The `-limitfreerelay` and `-relaypriority` options which controlled relay of free transactions have therefore been removed.
 - The `-sendfreetransactions` option has been removed, since almost all miners do not include transactions which do not attach a transaction fee.
@@ -484,7 +484,7 @@ Version 2.16 introduced mempool persistence across restarts (the mempool is save
 Network fork safety enhancements
 --------------------------------
 
-A number of changes to the way Groestlcoin Core deals with peer connections and invalid blocks
+A number of changes to the way Soferox Core deals with peer connections and invalid blocks
 have been made, as a safety precaution against blockchain forks and misbehaving peers.
 
 - Unrequested blocks with less work than the minimum-chain-work are now no longer processed even
@@ -544,7 +544,7 @@ Wallet changes
 
 ### Segwit Wallet
 
-Groestlcoin Core 2.16.0 introduces full support for segwit in the wallet and user interfaces. A new `-addresstype` argument has been added, which supports `legacy`, `p2sh-segwit` (default), and `bech32` addresses. It controls what kind of addresses are produced by `getnewaddress`, `getaccountaddress`, and `createmultisigaddress`. A `-changetype` argument has also been added, with the same options, and by default equal to `-addresstype`, to control which kind of change is used.
+Soferox Core 2.16.0 introduces full support for segwit in the wallet and user interfaces. A new `-addresstype` argument has been added, which supports `legacy`, `p2sh-segwit` (default), and `bech32` addresses. It controls what kind of addresses are produced by `getnewaddress`, `getaccountaddress`, and `createmultisigaddress`. A `-changetype` argument has also been added, with the same options, and by default equal to `-addresstype`, to control which kind of change is used.
 
 A new `address_type` parameter has been added to the `getnewaddress` and `addmultisigaddress` RPCs to specify which type of address to generate.
 A `change_type` argument has been added to the `fundrawtransaction` RPC to override the `-changetype` argument for specific transactions.
@@ -582,9 +582,9 @@ use the `replaceable` argument for individual transactions.
 
 ### Wallets directory configuration (`-walletdir`)
 
-Groestlcoin Core now has more flexibility in where the wallets directory can be
+Soferox Core now has more flexibility in where the wallets directory can be
 located. Previously wallet database files were stored at the top level of the
-groestlcoin data directory. The behavior is now:
+soferox data directory. The behavior is now:
 
 - For new installations (where the data directory doesn't already exist),
   wallets will now be stored in a new `wallets/` subdirectory inside the data
@@ -602,7 +602,7 @@ becomes unavailable during operation, funds may be lost.
 
 Build: Minimum GCC bumped to 4.8.x
 ------------------------------------
-The minimum version of the GCC compiler required to compile Groestlcoin Core is now 4.8. No effort will be
+The minimum version of the GCC compiler required to compile Soferox Core is now 4.8. No effort will be
 made to support older versions of GCC. See discussion in issue #11732 for more information.
 The minimum version for the Clang compiler is still 3.3. Other minimum dependency versions can be found in `doc/dependencies.md` in the repository.
 
@@ -617,7 +617,7 @@ The SHA256 hashing optimizations for architectures supporting SSE4, which lead t
 
 GUI changes
 -----------
-- Uses of "µGRS" in the GUI now also show the more colloquial term "groestls", specified in BIP176.
+- Uses of "??SFX" in the GUI now also show the more colloquial term "soferoxs", specified in BIP176.
 - The option to reuse a previous address has now been removed. This was justified by the need to "resend" an invoice, but now that we have the request history, that need should be gone.
 - Support for searching by TXID has been added, rather than just address and label.
 - A "Use available balance" option has been added to the send coins dialog, to add the remaining available wallet balance to a transaction output.
@@ -669,7 +669,7 @@ Low-level RPC changes
    the mempool or if `txindex` is enabled.
 
  - A new RPC command `getmemoryinfo` has been added which will return information
-   about the memory usage of groestlcoin Core. This was added in conjunction with
+   about the memory usage of soferox Core. This was added in conjunction with
    optimizations to memory management. See [Pull #8753](https://github.com/bitcoin/bitcoin/pull/8753)
    for more information.
 
@@ -710,9 +710,9 @@ Low-level RPC changes
   in the chain (See [PR 9733](https://github.com/bitcoin/bitcoin/pull/9733)).
 - `listwallets` lists wallets which are currently loaded. See the *Multi-wallet* section
   of these release notes for full details (See [Multi-wallet support](#multi-wallet-support)).
-- `uptime` returns the total runtime of the `groestlcoind` server since its last start (See [PR 10400](https://github.com/bitcoin/bitcoin/pull/10400)).
+- `uptime` returns the total runtime of the `soferoxd` server since its last start (See [PR 10400](https://github.com/bitcoin/bitcoin/pull/10400)).
 
-- When using Groestlcoin Core in multi-wallet mode, RPC requests for wallet methods must specify
+- When using Soferox Core in multi-wallet mode, RPC requests for wallet methods must specify
   the wallet that they're intended for. See [Multi-wallet support](#multi-wallet-support) for full details.
 
 - The new database model no longer stores information about transaction
@@ -754,7 +754,7 @@ Low-level RPC changes
 
 - The `disconnectnode` RPC can now disconnect a node specified by node ID (as well as by IP address/port). To disconnect a node based on node ID, call the RPC with the new `nodeid` argument (See [PR 10143](https://github.com/bitcoin/bitcoin/pull/10143)).
 
-- The second argument in `prioritisetransaction` has been renamed from `priority_delta` to `dummy` since Groestlcoin Core no longer has a concept of coin age priority. The `dummy` argument has no functional effect, but is retained for positional argument compatibility. See [Removal of Coin Age Priority](#removal-of-coin-age-priority).
+- The second argument in `prioritisetransaction` has been renamed from `priority_delta` to `dummy` since Soferox Core no longer has a concept of coin age priority. The `dummy` argument has no functional effect, but is retained for positional argument compatibility. See [Removal of Coin Age Priority](#removal-of-coin-age-priority).
 
 - The `resendwallettransactions` RPC throws an error if the `-walletbroadcast` option is set to false (See [PR 10995](https://github.com/bitcoin/bitcoin/pull/10995)).
 
@@ -834,9 +834,9 @@ Low-level RPC changes
 Other changed command-line options
 ----------------------------------
 - `-debuglogfile=<file>` can be used to specify an alternative debug logging file.
-- groestlcoin-cli now has an `-stdinrpcpass` option to allow the RPC password to be read from standard input.
+- soferox-cli now has an `-stdinrpcpass` option to allow the RPC password to be read from standard input.
 - The `-usehd` option has been removed.
-- groestlcoin-cli now supports a new `-getinfo` flag which returns an output like that of the now-removed `getinfo` RPC.
+- soferox-cli now supports a new `-getinfo` flag which returns an output like that of the now-removed `getinfo` RPC.
 
 Testing changes
 ----------------

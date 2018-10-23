@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.groestlcoin.groestlcoind</string>
+	<string>org.soferox.soferoxd</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/groestlcoind</string>
+		<string>/usr/local/bin/soferoxd</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

@@ -1,9 +1,9 @@
 .PHONY: FORCE
 all: FORCE
-	$(MAKE) -C .. groestlcoin_qt test_groestlcoin_qt
+	$(MAKE) -C .. soferox_qt test_soferox_qt
 clean: FORCE
-	$(MAKE) -C .. groestlcoin_qt_clean test_groestlcoin_qt_clean
+	$(MAKE) -C .. soferox_qt_clean test_soferox_qt_clean
 check: FORCE
-	$(MAKE) -C .. test_groestlcoin_qt_check
-groestlcoin-qt groestlcoin-qt.exe: FORCE
-	 $(MAKE) -C .. groestlcoin_qt
+	$(MAKE) -C .. test_soferox_qt_check
+soferox-qt soferox-qt.exe: FORCE
+	 $(MAKE) -C .. soferox_qt

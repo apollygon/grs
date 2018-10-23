@@ -30,7 +30,7 @@ import collections
 PATTERN_IPV4 = re.compile(r"^((\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})):(\d+)$")
 PATTERN_IPV6 = re.compile(r"^\[([0-9a-z:]+)\]:(\d+)$")
 PATTERN_ONION = re.compile(r"^([abcdefghijklmnopqrstuvwxyz234567]{16}\.onion):(\d+)$")
-PATTERN_AGENT = re.compile(r"^(/Groestlcoin:2.11.(0|1|2|99)/|/Groestlcoin:2.13.(0|1|2|3|99)/|/Groestlcoin:2.16.(0|1|2|99)/)$")
+PATTERN_AGENT = re.compile(r"^(/Soferox:2.11.(0|1|2|99)/|/Soferox:2.13.(0|1|2|3|99)/|/Soferox:2.16.(0|1|2|99)/)$")
 
 def parseline(line):
     sline = line.split()

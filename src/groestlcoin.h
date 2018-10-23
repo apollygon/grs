@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2015 The Groestlcoin developers
+// Copyright (c) 2014-2015 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -40,37 +40,37 @@ public:
 };
 
 
-uint256 HashGroestl(const ConstBuf& cbuf);
+uint256 HashSoferox(const ConstBuf& cbuf);
 
 uint256 HashFromTx(const ConstBuf& cbuf);
 uint256 HashForSignature(const ConstBuf& cbuf);
-inline uint256 HashPow(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
-inline uint256 HashMessage(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
-inline uint256 HashForAddress(const ConstBuf& cbuf) { return HashGroestl(cbuf); }
+inline uint256 HashPow(const ConstBuf& cbuf) { return HashSoferox(cbuf); }
+inline uint256 HashMessage(const ConstBuf& cbuf) { return HashSoferox(cbuf); }
+inline uint256 HashForAddress(const ConstBuf& cbuf) { return HashSoferox(cbuf); }
 
 
-class GroestlHasher {
+class SoferoxHasher {
 private:
 	void *ctx;
 public:
 	void Finalize(unsigned char hash[32]);
-	GroestlHasher& Write(const unsigned char *data, size_t len);
-	GroestlHasher();
-	GroestlHasher(GroestlHasher&& x);
-	~GroestlHasher();
-	GroestlHasher& operator=(GroestlHasher&& x);
+	SoferoxHasher& Write(const unsigned char *data, size_t len);
+	SoferoxHasher();
+	SoferoxHasher(SoferoxHasher&& x);
+	~SoferoxHasher();
+	SoferoxHasher& operator=(SoferoxHasher&& x);
 };
 
-class CGroestlHashWriter
+class CSoferoxHashWriter
 {
 private:
-	GroestlHasher ctx;
+	SoferoxHasher ctx;
 
 	const int nType;
 	const int nVersion;
 public:
 
-	CGroestlHashWriter(int nTypeIn, int nVersionIn) : nType(nTypeIn), nVersion(nVersionIn) {}
+	CSoferoxHashWriter(int nTypeIn, int nVersionIn) : nType(nTypeIn), nVersion(nVersionIn) {}
 
 	int GetType() const { return nType; }
 	int GetVersion() const { return nVersion; }
@@ -87,7 +87,7 @@ public:
 	}
 
 	template<typename T>
-	CGroestlHashWriter& operator<<(const T& obj) {
+	CSoferoxHashWriter& operator<<(const T& obj) {
 		// Serialize to this stream
 		::Serialize(*this, obj);
 		return (*this);

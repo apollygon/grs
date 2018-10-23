@@ -1,5 +1,5 @@
-Building Groestlcoin
+Building Soferox
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Groestlcoin Core reference implementation of Groestlcoin.
+elements of the Soferox Core reference implementation of Soferox.

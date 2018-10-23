@@ -1,4 +1,4 @@
-Groestlcoin integration/staging tree
+Soferox integration/staging tree
 =================================
 Forked from Bitcoin reference wallet 0.8.6 on march 2014
 
@@ -10,9 +10,9 @@ Updated to Bitcoin reference wallet 0.16.0 on June 2018
 
 Updated to Bitcoin reference wallet 0.16.3 on September 2018
 
-Groestlcoin Core Wallet
+Soferox Core Wallet
 
-http://www.groestlcoin.org
+http://www.soferox.org
 
 The algorithm was written as a candidate for sha3
 
@@ -20,24 +20,24 @@ https://bitcointalk.org/index.php?topic=525926.0
 
 Copyright (c) 2009-2018 The Bitcoin Core Developers
 
-Copyright (c) 2014-2018 The Groestlcoin Core Developers
+Copyright (c) 2014-2018 The Soferox Core Developers
 
-What is Groestlcoin?
+What is Soferox?
 -----------------
 
-Groestlcoin is an experimental new digital currency that enables instant payments to
-anyone, anywhere in the world. Groestlcoin uses peer-to-peer technology to operate
+Soferox is an experimental new digital currency that enables instant payments to
+anyone, anywhere in the world. Soferox uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
-out collectively by the network. Groestlcoin Core is the name of open source
+out collectively by the network. Soferox Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Groestlcoin Core software, see http://www.groestlcoin.org/download.
+the Soferox Core software, see http://www.soferox.org/download.
 
 License
 -------
 
-Groestlcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Soferox Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see http://opensource.org/licenses/MIT.
 
 Development Process
@@ -46,7 +46,7 @@ Development Process
 Developers work in their own trees, then submit pull requests when they think
 their feature or bug fix is ready.
 
-If it is a simple/trivial/non-controversial change, then one of the Groestlcoin
+If it is a simple/trivial/non-controversial change, then one of the Soferox
 development team members simply pulls it.
 
 If it is a *more complicated or potentially controversial* change, then the patch
@@ -57,8 +57,8 @@ Developers should expect to rework and resubmit patches if the code doesn't
 match the project's coding conventions or are controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/groestlcoin/groestlcoin/tags) are created
-regularly to indicate new official, stable release versions of Groestlcoin.
+completely stable. [Tags](https://github.com/soferox/soferox/tags) are created
+regularly to indicate new official, stable release versions of Soferox.
 
 Development tips and tricks
 ---------------------------
@@ -81,7 +81,7 @@ to see it.
 
 **testnet and regtest modes**
 
-Run with the -testnet option to run with "play groestlcoins" on the test network, if you
+Run with the -testnet option to run with "play soferoxs" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the -regtest option.
@@ -90,7 +90,7 @@ that run in -regest mode.
 
 **DEBUG_LOCKORDER**
 
-Groestlcoin Core is a multithreaded application, and deadlocks or other multithreading bugs
+Soferox Core is a multithreaded application, and deadlocks or other multithreading bugs
 can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
 CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of what locks
 are held, and adds warning to the debug.log file if inconsistencies are detected.

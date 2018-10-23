@@ -1,9 +1,9 @@
-Groestlcoin Core
+Soferox Core
 =============
 
 Intro
 -----
-Groestlcoin is a free open source peer-to-peer electronic cash system that is
+Soferox is a free open source peer-to-peer electronic cash system that is
 completely decentralized, without the need for a central server or trusted
 parties.  Users hold the crypto keys to their own money and transact directly
 with each other, with the help of a P2P network to check for double-spending.
@@ -11,9 +11,9 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 -----
-Unpack the files into a directory and run groestlcoin-qt.exe.
+Unpack the files into a directory and run soferox-qt.exe.
 
-Groestlcoin Core is the original Groestlcoin client and it builds the backbone of the network.
-However, it downloads and stores the entire history of Groestlcoin transactions;
+Soferox Core is the original Soferox client and it builds the backbone of the network.
+However, it downloads and stores the entire history of Soferox transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours.

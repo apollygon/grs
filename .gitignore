@@ -1,12 +1,12 @@
 *.tar.gz
 
 *.exe
-src/groestlcoin
-src/groestlcoind
-src/groestlcoin-cli
-src/groestlcoin-tx
-src/test/test_groestlcoin
-src/qt/test/test_groestlcoin-qt
+src/soferox
+src/soferoxd
+src/soferox-cli
+src/soferox-tx
+src/test/test_soferox
+src/qt/test/test_soferox-qt
 
 # autoreconf
 Makefile.in
@@ -29,8 +29,8 @@ config.log
 config.status
 configure
 libtool
-src/config/groestlcoin-config.h
-src/config/groestlcoin-config.h.in
+src/config/soferox-config.h
+src/config/soferox-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -63,7 +63,7 @@ src/qt/bitcoin-qt.includes
 *.o
 *.o-*
 *.patch
-.groestlcoin
+.soferox
 *.a
 *.pb.cc
 *.pb.h
@@ -82,13 +82,13 @@ src/qt/bitcoin-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-groestlcoin-qt
-Groestlcoin-Qt.app
+soferox-qt
+Soferox-Qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-groestlcoin-qt_test
+soferox-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -123,7 +123,7 @@ src/qt/res_bitcoin.cpp
 src/qt/res_bitcoin_locale.cpp
 src/*.aps
 
-my-groestlcoin.sln
+my-soferox.sln
 .vs
 *.cmd
 *.msi

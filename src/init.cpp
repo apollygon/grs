@@ -181,7 +181,7 @@ void Shutdown()
     /// for example if the data directory was found to be locked.
     /// Be sure that anything that writes files or flushes caches only does this if the respective
     /// module was initialized.
-    RenameThread("groestlcoin-shutoff");
+    RenameThread("soferox-shutoff");
     mempool.AddTransactionsUpdated(1);
 
     StopHTTPRPC();
@@ -525,8 +525,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/Groestlcoin/groestlcoin>";
-    const std::string URL_WEBSITE = "<https://groestlcoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/Soferox/soferox>";
+    const std::string URL_WEBSITE = "<https://soferox.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -630,7 +630,7 @@ void CleanupBlockRevFiles()
 void ThreadImport(std::vector<fs::path> vImportFiles)
 {
     const CChainParams& chainparams = Params();
-    RenameThread("groestlcoin-loadblk");
+    RenameThread("soferox-loadblk");
 
     {
     CImportingNow imp;
@@ -1193,7 +1193,7 @@ bool AppInitSanityChecks()
     ECC_Start();
     globalVerifyHandle.reset(new ECCVerifyHandle());
 
-#ifndef _MSC_VER	//GRS
+#ifndef _MSC_VER	//SFX
     // Sanity check
     if (!InitSanityCheck())
         return InitError(strprintf(_("Initialization sanity check failed. %s is shutting down."), _(PACKAGE_NAME)));

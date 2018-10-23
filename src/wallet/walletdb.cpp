@@ -741,7 +741,7 @@ DBErrors CWalletDB::ZapWalletTx(std::vector<CWalletTx>& vWtx)
 void MaybeCompactWalletDB()
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("groestlcoin-wallet");
+    RenameThread("soferox-wallet");
 
     static std::atomic<bool> fOneThread(false);
     if (fOneThread.exchange(true)) {

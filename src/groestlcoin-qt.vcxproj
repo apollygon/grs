@@ -519,7 +519,7 @@
     <ResourceCompile Include="qt\res\bitcoin-qt-res.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="qt\res\icons\groestlcoin.ico" />
+    <Image Include="qt\res\icons\soferox.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="qt\locale\bitcoin_ach.ts" />

@@ -12,7 +12,7 @@
  * for both bitcoind and bitcoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Groestlcoin");
+const std::string CLIENT_NAME("Soferox");
 
 /**
  * Client version number
@@ -41,7 +41,7 @@ const std::string CLIENT_NAME("Groestlcoin");
 #include <obj/build.h>
 #endif
 
-#define BUILD_DESC "v2.16.3"    //GRS
+#define BUILD_DESC "v2.16.3"    //SFX
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
 #ifdef GIT_ARCHIVE

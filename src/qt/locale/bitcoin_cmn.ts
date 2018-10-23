@@ -9,7 +9,7 @@
     <name>AskPassphraseDialog</name>
     </context>
 <context>
-    <name>GroestlcoinGUI</name>
+    <name>SoferoxGUI</name>
     </context>
 <context>
     <name>ClientModel</name>
@@ -105,6 +105,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>groestlcoin-core</name>
+    <name>soferox-core</name>
     </context>
 </TS>

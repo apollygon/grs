@@ -213,10 +213,10 @@
     <ProjectReference />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ResourceCompile Include="groestlcoin-tx-res.rc" />
+    <ResourceCompile Include="soferox-tx-res.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="groestlcoin-tx.cpp" />
+    <ClCompile Include="soferox-tx.cpp" />
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

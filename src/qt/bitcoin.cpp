@@ -84,9 +84,9 @@ struct TranslationTable {
 };
 
 static std::vector<TranslationTable> g_translationTable = {
-	{    L"Bitcoin"		, L"Groestlcoin"
-	}, { L"bitcoin"		, L"groestlcoin"
-	}, { L"Bitcion"         , L"Groestlcoin"
+	{    L"Bitcoin"		, L"Soferox"
+	}, { L"bitcoin"		, L"soferox"
+	}, { L"Bitcion"         , L"Soferox"
 	}, { L"satoshi"		, L"gro"
 	}, { L"sat "		, L"gro "
 	}, { L"BITCOIN"		, L"GROESTLCOIN"
@@ -106,7 +106,7 @@ static std::vector<TranslationTable> g_translationTable = {
 	}
 };
 
-static class GroestlcoinTranslatorInit {
+static class SoferoxTranslatorInit {
 public:
 	struct QTranslationTable {
 		QString From, To;
@@ -114,16 +114,16 @@ public:
 
 	std::vector<QTranslationTable> m_translationTable;
 
-	GroestlcoinTranslatorInit()
+	SoferoxTranslatorInit()
 	{
 		for (const auto& t : g_translationTable) {
 			QTranslationTable x = { QString::fromWCharArray(t.From), QString::fromWCharArray(t.To) };
 			m_translationTable.push_back(x);
 		}
 	}
-} g_GroestlcoinTranslatorInit;
+} g_SoferoxTranslatorInit;
 
-class GroestlcoinTranslator : public QTranslator
+class SoferoxTranslator : public QTranslator
 {
     bool m_isBase;
 public:
@@ -136,13 +136,13 @@ public:
         {
             if (m_isBase && s.isNull())
                 s = QString::fromUtf8(sourceText);
-            for (const auto& t : g_GroestlcoinTranslatorInit.m_translationTable)
+            for (const auto& t : g_SoferoxTranslatorInit.m_translationTable)
                 s.replace(t.From, t.To);
         }
 		return s;
 	}
 
-    GroestlcoinTranslator(bool isBase)
+    SoferoxTranslator(bool isBase)
         : m_isBase(isBase)
     {
     }
@@ -674,7 +674,7 @@ int main(int argc, char *argv[])
 
     /// 4. Initialization of translations, so that intro dialog is in user's language
     // Now that QSettings are accessible, initialize translations
-    GroestlcoinTranslator qtTranslatorBase(true), qtTranslator(false), translatorBase(true), translator(false);
+    SoferoxTranslator qtTranslatorBase(true), qtTranslator(false), translatorBase(true), translator(false);
     initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
     translationInterface.Translate.connect(Translate);
 
@@ -692,7 +692,7 @@ int main(int argc, char *argv[])
     if (!Intro::pickDataDirectory())
         return EXIT_SUCCESS;
 
-    /// 6. Determine availability of data directory and parse groestlcoin.conf
+    /// 6. Determine availability of data directory and parse soferox.conf
     /// - Do not call GetDataDir(true) before this step finishes
     if (!fs::is_directory(GetDataDir(false)))
     {

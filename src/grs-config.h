@@ -2,9 +2,9 @@
 
 #define UCFG_DEFINE_NDEBUG 0
 
-#define UCFG_GRS_FAST 1	//!!!T
+#define UCFG_SFX_FAST 1	//!!!T
 
-#define PACKAGE_NAME "Groestlcoin Core"
+#define PACKAGE_NAME "Soferox Core"
 
 #define CLIENT_VERSION_MAJOR 2
 #define CLIENT_VERSION_MINOR 16
@@ -18,8 +18,8 @@
 #define BUILD_DESC "v2.16.3"
 
 #define COPYRIGHT_HOLDERS "The %s developers"
-#define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
-#define COPYRIGHT_HOLDERS_SUBSTITUTION "Groestlcoin Core"
+#define COPYRIGHT_HOLDERS_FINAL "The Soferox Core developers"
+#define COPYRIGHT_HOLDERS_SUBSTITUTION "Soferox Core"
 
 #if defined(_MSC_VER) && !defined(RC_COMPILER)
 #	include <vc-inc.h>

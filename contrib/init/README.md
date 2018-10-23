@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: groestlcoind.service
-Upstart: groestlcoind.conf
-OpenRC:  groestlcoind.openrc
-         groestlcoind.openrcconf
-CentOS:  groestlcoind.init
-OS X:    org.groestlcoin.groestlcoind.plist
+SystemD: soferoxd.service
+Upstart: soferoxd.conf
+OpenRC:  soferoxd.openrc
+         soferoxd.openrcconf
+CentOS:  soferoxd.init
+OS X:    org.soferox.soferoxd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

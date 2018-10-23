@@ -137,7 +137,7 @@
     <ClCompile Include="checkpoints.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="groestlcoin.cpp">
+    <ClCompile Include="soferox.cpp">
       <Filter>Source Files\grs</Filter>
     </ClCompile>
     <ClCompile Include="protocol.cpp">
@@ -281,7 +281,7 @@
     <ClCompile Include="wallet\rpcdump.cpp">
       <Filter>Source Files\wallet</Filter>
     </ClCompile>
-    <ClCompile Include="sphlib\groestl.cpp">
+    <ClCompile Include="sphlib\soferox.cpp">
       <Filter>Source Files\crypto</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -290,7 +290,7 @@
     <ClCompile Include="secp256k1\src\secp256k1.c">
       <Filter>Source Files\secp256k1</Filter>
     </ClCompile>
-    <ClCompile Include="groestlcoin-hash.cpp">
+    <ClCompile Include="soferox-hash.cpp">
       <Filter>Source Files\grs</Filter>
     </ClCompile>
     <ClCompile Include="univalue\lib\univalue.cpp">
@@ -368,7 +368,7 @@
     <ClCompile Include="ui_interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="groestlcoin-dll.cpp">
+    <ClCompile Include="soferox-dll.cpp">
       <Filter>Source Files\grs</Filter>
     </ClCompile>
     <ClCompile Include="win-libs.cpp">
@@ -689,13 +689,13 @@
     <ClCompile Include="qt\bitcoin.cpp">
       <Filter>Header Files\grs\inc</Filter>
     </ClCompile>
-    <ClCompile Include="groestlcoin-cli.cpp">
+    <ClCompile Include="soferox-cli.cpp">
       <Filter>Header Files\grs\inc</Filter>
     </ClCompile>
-    <ClCompile Include="groestlcoin-tx.cpp">
+    <ClCompile Include="soferox-tx.cpp">
       <Filter>Header Files\grs\inc</Filter>
     </ClCompile>
-    <ClCompile Include="groestlcoind.cpp">
+    <ClCompile Include="soferoxd.cpp">
       <Filter>Header Files\grs\inc</Filter>
     </ClCompile>
     <ClCompile Include="support\lockedpool.cpp">
@@ -760,7 +760,7 @@
     <ClInclude Include="checkpoints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="groestlcoin.h">
+    <ClInclude Include="soferox.h">
       <Filter>Header Files\grs</Filter>
     </ClInclude>
     <ClInclude Include="protocol.h">

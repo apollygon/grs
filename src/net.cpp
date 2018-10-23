@@ -66,7 +66,7 @@
 using namespace std;
 
 namespace {
-    const int MAX_OUTBOUND_CONNECTIONS = 15;		//GRS
+    const int MAX_OUTBOUND_CONNECTIONS = 15;		//SFX
 
     struct ListenSocket {
         SOCKET socket;
@@ -1523,7 +1523,7 @@ void ThreadMapPort()
             }
         }
 
-        std::string strDesc = "Groestlcoin " + FormatFullVersion();
+        std::string strDesc = "Soferox " + FormatFullVersion();
 
         try {
             while (true) {
@@ -2822,7 +2822,7 @@ void CConnman::PushMessage(CNode* pnode, CSerializedNetMsg&& msg)
 
     std::vector<unsigned char> serializedHeader;
     serializedHeader.reserve(CMessageHeader::HEADER_SIZE);
-	//GRS
+	//SFX
 	uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data.data(), msg.data.data() + nMessageSize));
     CMessageHeader hdr(Params().MessageStart(), msg.command.c_str(), nMessageSize);
     memcpy(hdr.pchChecksum, hash.begin(), CMessageHeader::CHECKSUM_SIZE);

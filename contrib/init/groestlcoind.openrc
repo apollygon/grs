@@ -2,26 +2,26 @@
 
 # backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/groestlcoin/.groestlcoin" ]; then
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/groestlcoin/.groestlcoin"
+if [ -d "/var/lib/soferox/.soferox" ]; then
+	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/soferox/.soferox"
 else
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/groestlcoind"
+	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/soferoxd"
 fi
 
-GROESTLCOIND_CONFIGFILE=${GROESTLCOIND_CONFIGFILE:-/etc/groestlcoin/groestlcoin.conf}
-GROESTLCOIND_PIDDIR=${GROESTLCOIND_PIDDIR:-/var/run/groestlcoind}
-GROESTLCOIND_PIDFILE=${GROESTLCOIND_PIDFILE:-${GROESTLCOIND_PIDDIR}/groestlcoind.pid}
+GROESTLCOIND_CONFIGFILE=${GROESTLCOIND_CONFIGFILE:-/etc/soferox/soferox.conf}
+GROESTLCOIND_PIDDIR=${GROESTLCOIND_PIDDIR:-/var/run/soferoxd}
+GROESTLCOIND_PIDFILE=${GROESTLCOIND_PIDFILE:-${GROESTLCOIND_PIDDIR}/soferoxd.pid}
 GROESTLCOIND_DATADIR=${GROESTLCOIND_DATADIR:-${GROESTLCOIND_DEFAULT_DATADIR}}
-GROESTLCOIND_USER=${GROESTLCOIND_USER:-${GROESTLCOIN_USER:-groestlcoin}}
-GROESTLCOIND_GROUP=${GROESTLCOIND_GROUP:-groestlcoin}
-GROESTLCOIND_BIN=${GROESTLCOIND_BIN:-/usr/bin/groestlcoind}
+GROESTLCOIND_USER=${GROESTLCOIND_USER:-${GROESTLCOIN_USER:-soferox}}
+GROESTLCOIND_GROUP=${GROESTLCOIND_GROUP:-soferox}
+GROESTLCOIND_BIN=${GROESTLCOIND_BIN:-/usr/bin/soferoxd}
 GROESTLCOIND_NICE=${GROESTLCOIND_NICE:-${NICELEVEL:-0}}
 GROESTLCOIND_OPTS="${GROESTLCOIND_OPTS:-${GROESTLCOIN_OPTS}}"
 
-name="GroestlCoin Core Daemon"
-description="GroestlCoin cryptocurrency P2P network daemon"
+name="SoferoxCoin Core Daemon"
+description="SoferoxCoin cryptocurrency P2P network daemon"
 
-command="/usr/bin/groestlcoind"
+command="/usr/bin/soferoxd"
 command_args="-pid=\"${GROESTLCOIND_PIDFILE}\" \
 		-conf=\"${GROESTLCOIND_CONFIGFILE}\" \
 		-datadir=\"${GROESTLCOIND_DATADIR}\" \
@@ -71,7 +71,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${GROESTLCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run groestlcoind."
+		eerror "ERROR: You must set a secure rpcpassword to run soferoxd."
 		eerror "The setting must appear in ${GROESTLCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -84,7 +84,7 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"GroestlCoin Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"SoferoxCoin Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

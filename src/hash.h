@@ -15,7 +15,7 @@
 
 #include <vector>
 
-#include "groestlcoin.h"
+#include "soferox.h"
 
 typedef uint256 ChainCode;
 
@@ -118,7 +118,7 @@ inline uint160 Hash160(const prevector<N, unsigned char>& vch)
 class CHashWriter
 {
 private:
-    CSHA256 ctx;	//GRS
+    CSHA256 ctx;	//SFX
 
     const int nType;
     const int nVersion;

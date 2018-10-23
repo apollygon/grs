@@ -34,17 +34,17 @@ brew install zeroc-ice/tap/berkeley-db@5.3
 
 **Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
-Build Groestlcoin Core
+Build Soferox Core
 ------------------------
 
-1. Clone the groestlcoin source code and cd into `groestlcoin`
+1. Clone the soferox source code and cd into `soferox`
 
-        git clone https://github.com/Groestlcoin/groestlcoin.git
-        cd groestlcoin
+        git clone https://github.com/Soferox/soferox.git
+        cd soferox
 
-2.  Build groestlcoin-core:
+2.  Build soferox-core:
 
-    Configure and build the headless groestlcoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless soferox binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -59,39 +59,39 @@ Build Groestlcoin Core
 Running
 -------
 
-Groestlcoin Core is now available at `./src/groestlcoind`
+Soferox Core is now available at `./src/soferoxd`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=groestlcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
+    echo -e "rpcuser=soferoxrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Soferox/soferox.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Groestlcoin/groestlcoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Soferox/soferox.conf"
 
-The first time you run groestlcoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run soferoxd, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
-    tail -f $HOME/Library/Application\ Support/Groestlcoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Soferox/debug.log
 
-Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Groestlcoin-Qt.app
+Once dependencies are compiled, see [doc/release-process.md](release-process.md) for how the Soferox-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Other commands:
 -------
 
-    ./src/groestlcoind -daemon # Starts the groestlcoin daemon.
-    ./src/groestlcoin-cli --help # Outputs a list of command-line options.
-    ./src/groestlcoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/soferoxd -daemon # Starts the soferox daemon.
+    ./src/soferox-cli --help # Outputs a list of command-line options.
+    ./src/soferox-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for groestlcoin development.
+You can use Qt Creator as an IDE, for soferox development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "groestlcoin-qt" as project name, enter src/qt as location
+4. Enter "soferox-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

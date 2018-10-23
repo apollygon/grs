@@ -1,8 +1,8 @@
-<!-- This issue tracker is only for technical issues related to Groestlcoin Core.
+<!-- This issue tracker is only for technical issues related to Soferox Core.
 
-General groestlcoin questions and/or support requests are best directed to the Groestlcoin Forum at https://www.groestlcoin.org/forum/.
+General soferox questions and/or support requests are best directed to the Soferox Forum at https://www.soferox.org/forum/.
 
-For reporting security issues, send email to security@groestlcoin.org
+For reporting security issues, send email to security@soferox.org
 
 If the node is "stuck" during sync or giving "block checksum mismatch" errors, please ensure your hardware is stable by running memtest and observe CPU temperature with a load-test tool such as linpack before creating an issue! -->
 
@@ -13,7 +13,7 @@ If the node is "stuck" during sync or giving "block checksum mismatch" errors, p
 
 <!--- How reliably can you reproduce the issue, what are the steps to do so? -->
 
-<!-- What version of Groestlcoin Core are you using, where did you get it (website, self-compiled, etc)? -->
+<!-- What version of Soferox Core are you using, where did you get it (website, self-compiled, etc)? -->
 
 <!-- What type of machine are you observing the error on (OS/CPU and disk type)? -->
 

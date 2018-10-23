@@ -303,21 +303,21 @@
     <ClCompile Include="crypto\aes.cpp" />
     <ClCompile Include="crypto\hmac_sha256.cpp" />
     <ClCompile Include="dbwrapper.cpp" />
-    <ClCompile Include="groestlcoin-cli.cpp">
+    <ClCompile Include="soferox-cli.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="groestlcoin-dll.cpp" />
-    <ClCompile Include="groestlcoin-hash.cpp" />
-    <ClCompile Include="groestlcoin-tx.cpp">
+    <ClCompile Include="soferox-dll.cpp" />
+    <ClCompile Include="soferox-hash.cpp" />
+    <ClCompile Include="soferox-tx.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="groestlcoind.cpp">
+    <ClCompile Include="soferoxd.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
@@ -548,7 +548,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="groestlcoin.cpp" />
+    <ClCompile Include="soferox.cpp" />
     <ClCompile Include="hash.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="key.cpp">
@@ -589,7 +589,7 @@
     <ClCompile Include="script\sigcache.cpp" />
     <ClCompile Include="script\sign.cpp" />
     <ClCompile Include="script\standard.cpp" />
-    <ClCompile Include="sphlib\groestl.cpp">
+    <ClCompile Include="sphlib\soferox.cpp">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
       </ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
@@ -671,7 +671,7 @@
     <ClInclude Include="crypto\sha512.h" />
     <ClInclude Include="cuckoocache.h" />
     <ClInclude Include="eccryptoverify.h" />
-    <ClInclude Include="groestlcoin.h" />
+    <ClInclude Include="soferox.h" />
     <ClInclude Include="grs-config.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="init.h" />

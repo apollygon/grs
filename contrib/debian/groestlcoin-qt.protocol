@@ -1,6 +1,6 @@
 [Protocol]
-exec=groestlcoin-qt '%u'
-protocol=groestlcoin
+exec=soferox-qt '%u'
+protocol=soferox
 input=none
 output=none
 helper=true

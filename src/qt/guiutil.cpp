@@ -146,7 +146,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("groestlcoin"))
+    if(!uri.isValid() || uri.scheme() != QString("soferox"))
         return false;
 
     SendCoinsRecipient rv;
@@ -186,7 +186,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::GRS, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::SFX, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -210,9 +210,9 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("groestlcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("soferox://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "groestlcoin:");
+        uri.replace(0, 10, "soferox:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -220,12 +220,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("groestlcoin:%1").arg(info.address);
+    QString ret = QString("soferox:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::GRS, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::SFX, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -615,10 +615,10 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Soferox.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Groestlcoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Groestlcoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Soferox (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Soferox (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -713,8 +713,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "groestlcoin.desktop";
-    return GetAutostartDir() / strprintf("groestlcoin-%s.lnk", chain);
+        return GetAutostartDir() / "soferox.desktop";
+    return GetAutostartDir() / strprintf("soferox-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()

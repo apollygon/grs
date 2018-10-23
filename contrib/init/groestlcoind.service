@@ -1,15 +1,15 @@
 [Unit]
-Description=Groestlcoin's distributed currency daemon
+Description=Soferox's distributed currency daemon
 After=network.target
 
 [Service]
-User=groestlcoin
-Group=groestlcoin
+User=soferox
+Group=soferox
 
 Type=forking
-PIDFile=/var/lib/groestlcoind/groestlcoind.pid
-ExecStart=/usr/bin/groestlcoind -daemon -pid=/var/lib/groestlcoind/groestlcoind.pid \
--conf=/etc/groestlcoin/groestlcoin.conf -datadir=/var/lib/groestlcoind -disablewallet
+PIDFile=/var/lib/soferoxd/soferoxd.pid
+ExecStart=/usr/bin/soferoxd -daemon -pid=/var/lib/soferoxd/soferoxd.pid \
+-conf=/etc/soferox/soferox.conf -datadir=/var/lib/soferoxd -disablewallet
 
 Restart=always
 PrivateTmp=true

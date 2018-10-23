@@ -8,7 +8,7 @@ if [ -z "${1}" ]; then
   echo "Usage: ./install_db5.sh <base-dir> [<extra-bdb-configure-flag> ...]"
   echo
   echo "Must specify a single argument: the directory in which db5 will be built."
-  echo "This is probably \`pwd\` if you're at the root of the groestlcoin repository."
+  echo "This is probably \`pwd\` if you're at the root of the soferox repository."
   exit 1
 fi
 
@@ -19,7 +19,7 @@ expand_path() {
 BDB_PREFIX="$(expand_path ${1})/db5"; shift;
 BDB_VERSION='db-5.3.28.NC'
 BDB_HASH='76a25560d9e52a198d37a31440fd07632b5f1f8f9f2b6d5438f4bc3e7c9013ef'
-BDB_URL="https://www.groestlcoin.org/${BDB_VERSION}.tar.gz"
+BDB_URL="https://www.soferox.org/${BDB_VERSION}.tar.gz"
 
 check_exists() {
   which "$1" >/dev/null 2>&1
@@ -64,8 +64,8 @@ tar -xzvf ${BDB_VERSION}.tar.gz -C "$BDB_PREFIX"
 cd "${BDB_PREFIX}/${BDB_VERSION}/"
 
 # Apply a patch necessary when building with clang and c++11 (see https://community.oracle.com/thread/3952592)
-CLANG_CXX11_PATCH_URL='https://www.groestlcoin.org/clang.patch'
-CLANG_CXX11_PATCH_HASH='3957e33935cf4283974cf96729144153373195da1b07a850b7afe749d20d8790'
+CLANG_CXX11_PATCH_URL='https://www.soferox.org/clang.patch'
+CLANG_CXX11_PATCH_HASH='3957e33935cf4283974cf96729544253373195da1b07a850b7afe749d20d8790'
 http_get "${CLANG_CXX11_PATCH_URL}" clang.patch "${CLANG_CXX11_PATCH_HASH}"
 patch -p2 < clang.patch
 
@@ -80,7 +80,7 @@ make install
 echo
 echo "db5 build complete."
 echo
-echo 'When compiling groestlcoind, run `./configure` in the following way:'
+echo 'When compiling soferoxd, run `./configure` in the following way:'
 echo
 echo "  export BDB_PREFIX='${BDB_PREFIX}'"
 echo '  ./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-5.3" BDB_CFLAGS="-I${BDB_PREFIX}/include" ...'

@@ -82,8 +82,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const BITCOIN_CONF_FILENAME = "groestlcoin.conf";
-const char * const BITCOIN_PID_FILENAME = "groestlcoin.pid";
+const char * const BITCOIN_CONF_FILENAME = "soferox.conf";
+const char * const BITCOIN_PID_FILENAME = "soferox.pid";
 const char * const DEFAULT_DEBUGLOGFILE = "debug.log";
 
 ArgsManager gArgs;
@@ -127,7 +127,7 @@ public:
         // that the config appears to have been loaded and there are no modules/engines available.
         OPENSSL_no_config();
 
-#if defined(WIN32) && !UCFG_GRS_FAST
+#if defined(WIN32) && !UCFG_SFX_FAST
         // Seed OpenSSL PRNG with current contents of the screen
         RAND_screen();
 #endif
@@ -558,7 +558,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "groestlcoin";
+    const char* pszModule = "soferox";
 #endif
     if (pex)
         return strprintf(
@@ -583,7 +583,7 @@ fs::path GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Groestlcoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Soferox";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -593,10 +593,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Groestlcoin";
+    return pathRet / "Library/Application Support/Soferox";
 #else
     // Unix
-    return pathRet / ".groestlcoin";
+    return pathRet / ".soferox";
 #endif
 #endif
 }
@@ -658,7 +658,7 @@ void ArgsManager::ReadConfigFile(const std::string& confPath)
 {
     fs::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good())
-        return; // No groestlcoin.conf file is OK
+        return; // No soferox.conf file is OK
 
     {
         LOCK(cs_args);
@@ -945,7 +945,7 @@ int GetNumCores()
 
 std::string CopyrightHolders(const std::string& strPrefix)
 {
-	std::string prefix2014 = strPrefix;					//GRS
+	std::string prefix2014 = strPrefix;					//SFX
 	size_t index2009 = strPrefix.find("2009");
 	if (index2009 != std::string::npos)
 		prefix2014.replace(index2009, 4, "2014");

@@ -17,9 +17,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(GRS);
-    unitlist.append(mGRS);
-    unitlist.append(uGRS);
+    unitlist.append(SFX);
+    unitlist.append(mSFX);
+    unitlist.append(uSFX);
     return unitlist;
 }
 
@@ -27,9 +27,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case GRS:
-    case mGRS:
-    case uGRS:
+    case SFX:
+    case mSFX:
+    case uSFX:
         return true;
     default:
         return false;
@@ -40,9 +40,9 @@ QString BitcoinUnits::longName(int unit)
 {
     switch(unit)
     {
-    case GRS: return QString("GRS");
-    case mGRS: return QString("mGRS");
-    case uGRS: return QString::fromUtf8("μGRS");
+    case SFX: return QString("SFX");
+    case mSFX: return QString("mSFX");
+    case uSFX: return QString::fromUtf8("μSFX");
     default: return QString("???");
     }
 }
@@ -51,7 +51,7 @@ QString BitcoinUnits::shortName(int unit)
 {
     switch(unit)
     {
-    case uGRS: return QString::fromUtf8("groestls");
+    case uSFX: return QString::fromUtf8("soferoxs");
     default:   return longName(unit);
     }
 }
@@ -60,9 +60,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case GRS: return QString("Groestlcoins");
-    case mGRS: return QString("Milli-Groestlcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uGRS: return QString("Micro-Groestlcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case SFX: return QString("Soferoxs");
+    case mSFX: return QString("Milli-Soferoxs (1 / 1" THIN_SP_UTF8 "000)");
+    case uSFX: return QString("Micro-Soferoxs (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -71,9 +71,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case GRS:  return 100000000;
-    case mGRS: return 100000;
-    case uGRS: return 100;
+    case SFX:  return 100000000;
+    case mSFX: return 100000;
+    case uSFX: return 100;
     default:   return 100000000;
     }
 }
@@ -82,9 +82,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case GRS: return 8;
-    case mGRS: return 5;
-    case uGRS: return 2;
+    case SFX: return 8;
+    case mSFX: return 5;
+    case uSFX: return 2;
     default: return 0;
     }
 }

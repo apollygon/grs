@@ -193,11 +193,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="groestlcoin-cli.cpp" />
+    <ClCompile Include="soferox-cli.cpp" />
     <ClCompile Include="win-libs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="groestlcoin-cli-res.rc" />
+    <ResourceCompile Include="soferox-cli-res.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
