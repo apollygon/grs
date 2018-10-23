@@ -544,17 +544,17 @@ public:
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
 
-		// for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
-		// 	genesis = CreateGenesisBlock(1530728750, nonce, 0x1e00ffff, 3, 0);
-		// 	consensus.hashGenesisBlock = genesis.GetHash();
-		// 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
-		// 		printf("Wonderfull__testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());	
-		// 		printf("Wonderfull__testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());	
-		// 		printf("Wonderfull__testnet_genesis.nonce = %d\n", genesis.nNonce);	
-		// 		break;
-		// 	}
+		 for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
+		 	genesis = CreateGenesisBlock(1530728750, nonce, 0x1e00ffff, 3, 0);
+		 	consensus.hashGenesisBlock = genesis.GetHash();
+		 	if (UintToArith256(consensus.hashGenesisBlock) < UintToArith256(consensus.powLimit)) {
+		 		printf("Wonderfull__testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());	
+		 		printf("Wonderfull__testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());	
+		 		printf("Wonderfull__testnet_genesis.nonce = %d\n", genesis.nNonce);	
+		 		break;
+		 	}
 	
-		// }
+		 }
 
 		genesis = CreateGenesisBlock(1537197790, 2573276, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
